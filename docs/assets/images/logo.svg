@@ -1,0 +1,18 @@
+<svg width="180" height="48" viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AIPERION logo">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <!-- A lettermark: two strokes meeting at top, crossbar, neural nodes at vertices -->
+  <line x1="18" y1="44" x2="36" y2="6" stroke="url(#logoGrad)" stroke-width="3.2" stroke-linecap="round"/>
+  <line x1="36" y1="6" x2="54" y2="44" stroke="url(#logoGrad)" stroke-width="3.2" stroke-linecap="round"/>
+  <line x1="24" y1="30" x2="48" y2="30" stroke="url(#logoGrad)" stroke-width="3.2" stroke-linecap="round"/>
+  <!-- Neural nodes at vertices -->
+  <circle cx="36" cy="6" r="4.5" fill="url(#logoGrad)"/>
+  <circle cx="18" cy="44" r="3" fill="url(#logoGrad)" opacity="0.55"/>
+  <circle cx="54" cy="44" r="3" fill="url(#logoGrad)" opacity="0.55"/>
+  <!-- Company name -->
+  <text x="70" y="34" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="800" fill="#F0F4FF" letter-spacing="2.5">AIPERION</text>
+</svg>

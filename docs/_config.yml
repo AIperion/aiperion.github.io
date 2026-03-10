@@ -23,7 +23,7 @@ email: info@aiperion.de
 description: >-
   AIPERION empowers organizations to harness the transformative power of AI
   and modern cloud technologies. We design, build, and scale AI-enhanced
-  solutions on Microsoft Azure and Kubernetes.
+  solutions on Microsoft Azure and Cloud Native technologies.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://aiperion.de" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: AIperion

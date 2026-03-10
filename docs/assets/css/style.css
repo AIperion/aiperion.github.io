@@ -712,6 +712,10 @@ section {
   z-index: 1;
 }
 
+.founder-skill-group .founder-tags {
+  justify-content: flex-start;
+}
+
 .tag {
   padding: 5px 13px;
   background: rgba(37, 99, 235, 0.07);
@@ -720,6 +724,100 @@ section {
   font-size: 12px;
   font-weight: 500;
   color: var(--text-muted);
+}
+
+/* Founder bio */
+.founder-bio {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Founder stats bar */
+.founder-stats {
+  display: flex;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.founder-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.founder-stat + .founder-stat {
+  border-left: 1px solid var(--border);
+}
+
+.founder-stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+.founder-stat-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+}
+
+/* Founder skill groups */
+.founder-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.founder-skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.founder-skill-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent-light);
+}
+
+/* LinkedIn profile link on card */
+.founder-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-light);
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  transition: opacity var(--transition);
+}
+
+.founder-linkedin:hover {
+  opacity: 0.75;
 }
 
 /* === CONTACT === */

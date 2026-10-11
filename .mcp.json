@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "penpot": {
+      "type": "stdio",
+      "command": "sh",
+      "args": [
+        "-c",
+        "exec sh \"$(git rev-parse --show-toplevel)/.github/mcp/penpot.sh\""
+      ],
+      "tools": [
+        "*"
+      ]
+    },
+    "foundry-image": {
+      "type": "stdio",
+      "command": "sh",
+      "args": [
+        "-c",
+        "cd \"$(git rev-parse --show-toplevel)\" && exec uv run --quiet --script .github/mcp/foundry-image/server.py"
+      ],
+      "tools": [
+        "*"
+      ]
+    }
+  }
+}

@@ -396,3 +396,14 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Local secrets (e.g. PENPOT_MCP_KEY for .github/mcp/penpot.sh)
+.env
+.env.*
+!.env.example
+
+# Default output folder of the foundry-image MCP server
+.generated-images/
+
+# macOS system files
+.DS_Store

@@ -1,0 +1,20 @@
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact-inner">
+    <h2 id="contact-title" tabindex="-1">{{ copy.contact_action }}</h2>
+    <div class="contact-layout">
+      <p>{{ copy.contact.intro | escape }}</p>
+      <dl class="contact-methods">
+        <div><dt>{{ copy.contact.email_label }}</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+        <div>
+          <dt>LinkedIn</dt>
+          <dd>
+            <a class="social-link" href="{{ site.linkedin_url }}">
+              <img class="social-logo" src="{{ '/assets/images/linkedin-in.png' | relative_url }}" width="635" height="540" alt="" loading="lazy" decoding="async">
+              <span>{{ copy.contact.linkedin_label }}</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

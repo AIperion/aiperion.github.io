@@ -1,0 +1,31 @@
+<section class="section approach" id="approach" aria-labelledby="approach-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="approach-title" tabindex="-1">{{ copy.approach.title | escape }}</h2>
+      <p class="intro">{{ copy.approach.intro | escape }}</p>
+    </div>
+    <div class="engagements">
+      {% for engagement in copy.approach.engagements %}
+        <article>
+          <h3>{{ engagement.title | escape }}</h3>
+          <p>{{ engagement.description | escape }}</p>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="workflow-head">
+      <h3>{{ copy.approach.workflow_title | escape }}</h3>
+      <p>{{ copy.approach.workflow_intro | escape }}</p>
+    </div>
+    <div class="workflow-layout">
+      <ol class="workflow-list">
+        {% for step in copy.approach.steps %}
+          <li><strong>{{ step.title | escape }}</strong> {{ step.description | escape }}</li>
+        {% endfor %}
+      </ol>
+      <aside class="context">
+        {% include concept-image.html name="human-ai-review" class="workflow-media" alt=copy.approach.image_alt sizes="(max-width: 767px) calc(100vw - 64px), 35vw" %}
+        {% for paragraph in copy.approach.context %}<p>{{ paragraph }}</p>{% endfor %}
+      </aside>
+    </div>
+  </div>
+</section>

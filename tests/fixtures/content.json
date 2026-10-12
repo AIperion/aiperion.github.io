@@ -1,0 +1,116 @@
+{
+  "en": {
+    "home_title": "AIPERION | AI engineering, architecture and coaching",
+    "home_description": "Christoph Hofmann helps technology leaders and software teams with AI consulting, architecture, development and coaching. Working across EMEA in English and German.",
+    "project_title": "Software projects | AIPERION",
+    "hero": "AI that fits your software.",
+    "services": ["Agentic AI", "Local and hybrid AI", "Agentic Agile", "Complete voice pipelines", "Cloud-native platforms"],
+    "engagements": ["Consulting", "Architecture", "Development", "Coaching"],
+    "workflow": ["Set intent and goals.", "Prepare the work with agent assistance.", "Approve readiness.", "Plan as a team.", "Implement story by story.", "Run automated checks.", "Accept or request rework.", "Review and adapt."],
+    "readiness": "Approve readiness. A human decides whether a story is ready. This is not a sprint commitment.",
+    "human_context": "solution design, accepted decisions, and the team's existing engineering and security conventions",
+    "mission": "Bridge software engineering and data science to build AI that serves people.",
+    "experience": "My experience spans 10+ years and 50+ projects, including large international projects and work in cross-functional teams.",
+    "planned": "AI certification planned",
+    "credential_summary": "Additional Microsoft qualifications in .NET software development.",
+    "linkedin": "LinkedIn profile",
+    "medium": "Blog on Medium",
+    "contact": "Get in touch",
+    "nav": ["Services", "Approach", "Projects", "Technology", "About", "Get in touch"],
+    "technology_explanations": ["Agents, knowledge and interfaces", "Local model execution", "Voice", "Platforms and software foundations"],
+    "technology_groups": ["AI", "Languages", "DevOps", "Infrastructure", "Platforms"],
+    "cncf": "CNCF technologies (Kubernetes, Helm)",
+    "image_alts": [
+      "A compact computer connected to a group of translucent glass panels.",
+      "An unbranded compact edge computer with cooling fins and visible circuitry.",
+      "A hand placing a blue tile between groups of glass and ceramic tiles."
+    ],
+    "stories": [
+      {
+        "title": "An agentic assistant for a healthcare imaging platform",
+        "paragraphs": [
+          "The project focused on user knowledge questions and analysis of available imaging-device performance data.",
+          "My work used Microsoft Agent Framework, MCP, AG-UI and RAG to support those tasks through an agentic assistant. The technical focus was connecting available knowledge and performance data with the assistant's interactions.",
+          "The scope described here is platform knowledge and device-performance analysis, not clinical diagnosis."
+        ]
+      },
+      {
+        "title": "An offline voice companion for medical imaging equipment",
+        "paragraphs": [
+          "My project work covered a complete offline voice pipeline: wake word, voice activity detection, speech-to-text, local small-language-model intent recognition and text-to-speech.",
+          "Local intent recognition connected spoken requests with device functions, without relying on cloud processing for the voice pipeline.",
+          "The design goal was to help doctors and clinical staff focus on patients and reduce context switching. This is an intended benefit, not a measured outcome."
+        ]
+      },
+      {
+        "title": "A hybrid in-vehicle AI prototype",
+        "paragraphs": [
+          "I supported a large automotive customer in integrating agentic use cases into its cloud backend and developed a hybrid prototype with a small language model running in the vehicle.",
+          "Prototype capabilities included local function calling, retrieval-augmented answers from vehicle manuals and conversational interaction (chit-chat).",
+          "This was prototype work focused on the interaction between in-vehicle inference and cloud services."
+        ]
+      }
+    ],
+    "project_heading": "Selected software projects",
+    "project_category": "Agent-assisted software delivery",
+    "project_summary": "A GitHub Copilot CLI plugin suite for agent-assisted software delivery. It coordinates specialist agents through research, planning, implementation and review, using shared repository context, quality gates and cost controls. A human approves the plan before execution proceeds within defined boundaries.",
+    "project_words": 40
+  },
+  "de": {
+    "home_title": "AIPERION | KI-Engineering, Architektur und Coaching",
+    "home_description": "Christoph Hofmann unterstützt Technologieverantwortliche und Softwareteams mit KI-Beratung, Architektur, Entwicklung und Coaching. In EMEA, auf Deutsch und Englisch.",
+    "project_title": "Softwareprojekte | AIPERION",
+    "hero": "KI, die zu Ihrer Software passt.",
+    "services": ["Agentic AI", "Lokale und hybride KI", "Agentic Agile", "Vollständige Sprachpipelines", "Cloud-native Plattformen"],
+    "engagements": ["Beratung", "Architektur", "Entwicklung", "Coaching"],
+    "workflow": ["Absicht und Ziele klären.", "Mit Agentenunterstützung vorbereiten.", "Umsetzungsreife freigeben.", "Als Team planen.", "Story für Story umsetzen.", "Automatisiert prüfen.", "Abnehmen oder Nacharbeit verlangen.", "Prüfen und anpassen."],
+    "readiness": "Umsetzungsreife freigeben. Ein Mensch entscheidet, ob eine Story bereit ist. Das ist noch keine Zusage für einen Sprint.",
+    "human_context": "Lösungsdesign, akzeptierte Entscheidungen und die bestehenden Engineering- und Sicherheitskonventionen des Teams",
+    "mission": "Software Engineering und Data Science verbinden, um KI zu entwickeln, die Menschen unterstützt.",
+    "experience": "Ich bringe 10+ Jahre Erfahrung aus 50+ Projekten mit, darunter große internationale Projekte und die Arbeit in bereichsübergreifenden Teams.",
+    "planned": "KI-Zertifizierung geplant",
+    "credential_summary": "Weitere Microsoft-Qualifikationen in .NET-Softwareentwicklung.",
+    "linkedin": "LinkedIn-Profil",
+    "medium": "Blog auf Medium",
+    "contact": "Kontakt aufnehmen",
+    "nav": ["Leistungen", "Vorgehensweise", "Projekte", "Technologie", "Über mich", "Kontakt aufnehmen"],
+    "technology_explanations": ["Agenten, Wissen und Schnittstellen", "Lokale Modellausführung", "Sprache", "Plattformen und Softwaregrundlagen"],
+    "technology_groups": ["KI", "Sprachen", "DevOps", "Infrastruktur", "Plattformen"],
+    "cncf": "CNCF-Technologien (Kubernetes, Helm)",
+    "image_alts": [
+      "Ein kompakter Computer, verbunden mit einer Gruppe transparenter Glasflächen.",
+      "Ein kompakter Edge-Computer ohne Markenkennzeichen, mit Kühlrippen und sichtbarer Elektronik.",
+      "Eine Hand setzt einen blauen Baustein zwischen Gruppen aus Glas- und Keramikbausteinen."
+    ],
+    "stories": [
+      {
+        "title": "Ein agentischer Assistent für eine Plattform zur medizinischen Bildgebung",
+        "paragraphs": [
+          "Im Mittelpunkt standen Wissensfragen der Nutzenden und die Analyse verfügbarer Leistungsdaten bildgebender Geräte.",
+          "Bei meiner Arbeit kamen Microsoft Agent Framework, MCP, AG-UI und RAG zum Einsatz, um diese Aufgaben mit einem agentischen Assistenten zu unterstützen. Der technische Schwerpunkt lag darauf, vorhandenes Wissen und Leistungsdaten mit den Interaktionen des Assistenten zu verbinden.",
+          "Der hier beschriebene Umfang betrifft Plattformwissen und Geräteleistungsdaten, nicht die klinische Diagnostik."
+        ]
+      },
+      {
+        "title": "Ein Offline-Sprachassistent für medizinische Bildgebungsgeräte",
+        "paragraphs": [
+          "Meine Projektarbeit umfasste eine vollständige Offline-Sprachpipeline: Aktivierungswort, Sprachaktivitätserkennung, Sprache-zu-Text, Absichtserkennung mit einem lokalen kleinen Sprachmodell und Text-zu-Sprache.",
+          "Die lokale Absichtserkennung verband gesprochene Anfragen mit Gerätefunktionen, ohne für die Sprachpipeline auf Cloud-Verarbeitung angewiesen zu sein.",
+          "Das Gestaltungsziel war, Ärztinnen, Ärzten und klinischem Personal mehr Fokus auf Patientinnen und Patienten zu ermöglichen und Kontextwechsel zu verringern. Das ist ein angestrebter Nutzen, kein gemessenes Ergebnis."
+        ]
+      },
+      {
+        "title": "Ein hybrider KI-Prototyp im Fahrzeug",
+        "paragraphs": [
+          "Ich unterstützte einen großen Automobilkunden dabei, agentische Anwendungsfälle in sein Cloud-Backend zu integrieren, und entwickelte einen hybriden Prototyp mit einem kleinen Sprachmodell im Fahrzeug.",
+          "Zu den Funktionen des Prototyps gehörten lokale Funktionsaufrufe, RAG-gestützte Antworten aus Fahrzeughandbüchern und dialogorientierte Interaktionen (Chit-Chat).",
+          "Die Prototypenarbeit untersuchte das Zusammenspiel von Inferenz im Fahrzeug und Cloud-Diensten."
+        ]
+      }
+    ],
+    "project_heading": "Ausgewählte Softwareprojekte",
+    "project_category": "Agentenunterstützte Softwareentwicklung",
+    "project_summary": "Eine Plugin-Sammlung für agentenunterstützte Softwareentwicklung mit GitHub Copilot CLI. Sie koordiniert spezialisierte Agenten durch Recherche, Planung, Umsetzung und Review, gestützt auf gemeinsamen Projektkontext, Qualitätsprüfungen und Kostenkontrollen. Ein Mensch gibt den Plan frei, bevor die Ausführung innerhalb definierter Grenzen startet.",
+    "project_words": 39
+  }
+}

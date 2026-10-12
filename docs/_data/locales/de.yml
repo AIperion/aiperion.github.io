@@ -1,0 +1,323 @@
+metadata:
+  home:
+    title: AIPERION | KI-Engineering, Architektur und Coaching
+    description: >-
+      Christoph Hofmann unterstützt Technologieverantwortliche und Softwareteams
+      mit KI-Beratung, Architektur, Entwicklung und Coaching. In EMEA, auf Deutsch
+      und Englisch.
+  projects:
+    title: Softwareprojekte | AIPERION
+    description: >-
+      Ausgewählte Softwareprojekte von Christoph Hofmann, beginnend mit Agile
+      Agents für agentenunterstützte Softwareentwicklung. Quellcode und
+      Dokumentation entdecken.
+
+skip_link: Zum Inhalt springen
+home_label: AIPERION Startseite
+navigation_label: Hauptnavigation
+language_label: Sprache
+impressum_label: Impressum
+menu:
+  open: Menü
+  close: Menü schließen
+navigation:
+  - label: Leistungen
+    section: services
+  - label: Vorgehensweise
+    section: approach
+  - label: Projekte
+    page: projects
+  - label: Technologie
+    section: tech
+  - label: Über mich
+    section: about
+  - label: Kontakt aufnehmen
+    section: contact
+    primary: true
+contact_action: Kontakt aufnehmen
+projects_action: Projekte
+
+hero:
+  title: KI, die zu Ihrer Software passt.
+  intro: >-
+    Ich unterstütze Technologieverantwortliche und Produktteams dabei, KI in ihre
+    Software zu integrieren. Mit Beratung, Architektur, Entwicklung und Coaching.
+  founder: Christoph Hofmann, Gründer von AIPERION.
+  services_action: Leistungen ansehen
+  image_alt: Ein kompakter Computer, verbunden mit einer Gruppe transparenter Glasflächen.
+
+services:
+  title: Was ich mit Ihnen entwickeln kann
+  intro: >-
+    Am Anfang steht die Aufgabe, die Sie lösen möchten. Ich arbeite an
+    KI-Systemen, der Software darum herum und der Art, wie Teams sie entwickeln.
+    Wenn eine klassische Plattform die bessere Antwort ist, braucht das
+    Vorhaben kein KI-Etikett.
+  scope_label: "Mögliche Leistungen:"
+  items:
+    - title: Agentic AI
+      priority: true
+      need: >-
+        Ein Assistent braucht mehr als ein Chatfenster: relevantes Wissen,
+        eine klare Aufgabe und Zugriff auf die passenden Werkzeuge.
+      description: >-
+        Ich konzipiere und entwickle Einzel- und Multi-Agenten-Systeme mit
+        klaren Zuständigkeiten und menschlichen Entscheidungspunkten. Microsoft
+        Agent Framework, Azure und geeignete Open-Source-Software kommen dort
+        zum Einsatz, wo sie zur Aufgabe passen.
+      scope:
+        - Analyse von Arbeitsabläufen und Architektur, einschließlich Agentenaufgaben und Freigabepunkten.
+        - Assistenten mit Anbindung an vereinbarte Wissensquellen und Anwendungswerkzeuge.
+        - Implementierung, Integrationsprüfungen, aufgabenspezifische Evaluation und dokumentierte Übergabe.
+    - title: Lokale und hybride KI
+      priority: true
+      need: >-
+        Eine reine Cloud-Verarbeitung passt nicht zu jeder Anforderung an
+        Konnektivität, Latenz, Datenverarbeitung oder verfügbare Hardware.
+      image: local-intelligence
+      image_alt: Ein kompakter Edge-Computer ohne Markenkennzeichen, mit Kühlrippen und sichtbarer Elektronik.
+      description: >-
+        Ich entwickle Lösungen mit lokalen kleinen Sprachmodellen und gezielt
+        gestalteten Cloud-Anbindungen. Lokale Absichtserkennung und kontrolliertes
+        Routing legen fest, welche Aufgaben auf dem Gerät oder lokalen System
+        bleiben und welche Cloud-Dienste nutzen dürfen.
+      scope:
+        - Modellauswahl und Fine-Tuning für vereinbarte Aufgaben.
+        - Hardwaregerechte Inferenz, Performance-Analyse sowie hardwarenahe Entwicklung und Geräteintegration.
+        - Regeln für lokales und Cloud-Routing sowie Rückfallverhalten, bei Bedarf mit ONNX Runtime oder vLLM.
+    - title: Agentic Agile
+      priority: true
+      need: >-
+        Coding-Agenten verändern, wie Arbeit ausgeführt wird. Menschen brauchen
+        weiterhin ein gemeinsames Ziel, Zeit für die Prüfung und klare
+        Akzeptanzkriterien.
+      description: >-
+        Ich unterstütze Teams dabei, Coding-Agenten in Scrum zu integrieren.
+        Das Vorgehen lässt sich auch auf Kanban übertragen. Menschliche Ziele
+        und Entscheidungen geben die Richtung vor; Agenten unterstützen die
+        Vorbereitung und Umsetzung.
+      scope:
+        - Teamvereinbarungen zu Umsetzungsreife, Kontext, Agentenaufgaben und menschlicher Prüfung.
+        - Ein Ablauf von Konzepten und Stories bis zu automatisierten Prüfungen und menschlicher Abnahme.
+        - Coaching für klare Zielbeschreibungen, kritische Prüfung sowie architektonisches und fachliches Urteilsvermögen.
+    - title: Vollständige Sprachpipelines
+      need: Eine gesprochene Anfrage soll zu einer definierten Aktion führen, nicht bei der Transkription enden.
+      description: >-
+        Ich konzipiere und entwickle vollständige Sprachpipelines für den
+        Offline-Betrieb, Cloud-Dienste oder eine gezielte Kombination. Sie verbinden
+        Sprache mit Funktionen einer Anwendung oder eines Geräts.
+      scope:
+        - Aktivierungswort und Sprachaktivitätserkennung (VAD).
+        - Sprache-zu-Text (STT), Absichtserkennung oder Modellverarbeitung und Funktionsanbindung.
+        - Text-zu-Sprache (TTS), Rückmeldungen im Dialog und durchgängige Integration.
+    - title: Cloud-native Plattformen
+      need: >-
+        Nicht jedes Softwareproblem braucht KI. Verteilte Anwendungen benötigen
+        eine Architektur, die zur Last und zur Aufgabe passt, und eine Plattform,
+        die das Team betreiben und weiterentwickeln kann.
+      description: >-
+        Ich berate, entwerfe und entwickle cloud-native verteilte Plattformen mit
+        Azure und passenden Technologien der Cloud Native Computing Foundation
+        (CNCF), mit oder ohne KI.
+      scope:
+        - Architektur und Servicegrenzen für verteilte Anwendungen.
+        - Plattform- und Anwendungsentwicklung, Auslieferungsprozesse und Observability.
+        - Anbindung bestehender Systeme, Hinweise für den Betrieb und technisches Coaching.
+
+work:
+  title: Ausgewählte Projekte
+  intro: Beispiele aus meiner Projektarbeit, ohne identifizierende Angaben.
+  stories:
+    - title: Ein agentischer Assistent für eine Plattform zur medizinischen Bildgebung
+      paragraphs:
+        - >-
+          Im Mittelpunkt standen Wissensfragen der Nutzenden und die Analyse
+          verfügbarer Leistungsdaten bildgebender Geräte.
+        - >-
+          Bei meiner Arbeit kamen Microsoft Agent Framework, MCP, AG-UI und RAG
+          zum Einsatz, um diese Aufgaben mit einem agentischen Assistenten zu
+          unterstützen. Der technische Schwerpunkt lag darauf, vorhandenes Wissen
+          und Leistungsdaten mit den Interaktionen des Assistenten zu verbinden.
+        - >-
+          Der hier beschriebene Umfang betrifft Plattformwissen und
+          Geräteleistungsdaten, nicht die klinische Diagnostik.
+    - title: Ein Offline-Sprachassistent für medizinische Bildgebungsgeräte
+      paragraphs:
+        - >-
+          Meine Projektarbeit umfasste eine vollständige Offline-Sprachpipeline:
+          Aktivierungswort, Sprachaktivitätserkennung, Sprache-zu-Text,
+          Absichtserkennung mit einem lokalen kleinen Sprachmodell und
+          Text-zu-Sprache.
+        - >-
+          Die lokale Absichtserkennung verband gesprochene Anfragen mit
+          Gerätefunktionen, ohne für die Sprachpipeline auf Cloud-Verarbeitung
+          angewiesen zu sein.
+        - >-
+          Das Gestaltungsziel war, Ärztinnen, Ärzten und klinischem Personal mehr
+          Fokus auf Patientinnen und Patienten zu ermöglichen und Kontextwechsel
+          zu verringern. Das ist ein angestrebter Nutzen, kein gemessenes Ergebnis.
+    - title: Ein hybrider KI-Prototyp im Fahrzeug
+      wide: true
+      paragraphs:
+        - >-
+          Ich unterstützte einen großen Automobilkunden dabei, agentische
+          Anwendungsfälle in sein Cloud-Backend zu integrieren, und entwickelte
+          einen hybriden Prototyp mit einem kleinen Sprachmodell im Fahrzeug.
+        - >-
+          Zu den Funktionen des Prototyps gehörten lokale Funktionsaufrufe,
+          RAG-gestützte Antworten aus Fahrzeughandbüchern und dialogorientierte
+          Interaktionen (Chit-Chat).
+        - >-
+          Die Prototypenarbeit untersuchte das Zusammenspiel von Inferenz im
+          Fahrzeug und Cloud-Diensten.
+
+approach:
+  title: Die Aufgabe zuerst. Entscheidungen bewusst treffen.
+  intro: >-
+    Ich arbeite mit Ihrem Team, von der ersten Fragestellung bis zur Umsetzung
+    und Übergabe. Die Zusammenarbeit kann sich auf eine einzelne Entscheidung
+    konzentrieren oder mehrere Leistungen verbinden.
+  engagements:
+    - title: Beratung
+      description: Aufgabe, Rahmenbedingungen und Optionen klären, bevor eine Lösung ausgewählt wird.
+    - title: Architektur
+      description: Ziele und Rahmenbedingungen in Systemgrenzen, dokumentierte Entscheidungen und ein Vorgehen für die Umsetzung übersetzen.
+    - title: Entwicklung
+      description: Die vereinbarte Lösung entwickeln und integrieren, mit automatisierten Prüfungen und einer Übergabe, mit der Ihr Team weiterarbeiten kann.
+    - title: Coaching
+      description: Klare Ziele formulieren, Ergebnisse kritisch prüfen und architektonisches wie fachliches Urteilsvermögen in der Praxis anwenden.
+  workflow_title: Wenn Coding-Agenten mitarbeiten
+  workflow_intro: >-
+    Mein Agentic-Agile-Vorgehen orientiert sich an Scrum und lässt sich auf Kanban
+    übertragen. Agenten wirken am Ablauf mit; die Verantwortung für Richtung und
+    Entscheidungen bleibt bei den Menschen.
+  steps:
+    - title: Absicht und Ziele klären.
+      description: Menschen bestimmen, was wichtig ist, was die Arbeit erreichen soll und welche Grenzen gelten.
+    - title: Mit Agentenunterstützung vorbereiten.
+      description: >-
+        Konzepte, Architekturentscheidungsdokumente (ADRs) und Stories ausarbeiten;
+        Stories auf die INVEST-Qualitätskriterien und Konsistenz mit der Definition
+        of Ready (DoR) prüfen.
+    - title: Umsetzungsreife freigeben.
+      description: Ein Mensch entscheidet, ob eine Story bereit ist. Das ist noch keine Zusage für einen Sprint.
+    - title: Als Team planen.
+      description: Umsetzung und menschliche Prüfkapazität berücksichtigen. Schätzung und Zusage bleiben beim Team.
+    - title: Story für Story umsetzen.
+      description: Agenten zerlegen vereinbarte Arbeit in Aufgaben und setzen sie innerhalb des akzeptierten Kontexts um.
+    - title: Automatisiert prüfen.
+      description: Die Ergebnisse liefern Anhaltspunkte für die Prüfung, ersetzen aber keine Abnahme.
+    - title: Abnehmen oder Nacharbeit verlangen.
+      description: Menschen bewerten die Arbeit anhand der Definition of Done (DoD) und entscheiden weiterhin über Abnahme und Release.
+    - title: Prüfen und anpassen.
+      description: Menschen leiten Review und Retrospektive und entwickeln die Arbeitsweise weiter.
+  image_alt: Eine Hand setzt einen blauen Baustein zwischen Gruppen aus Glas- und Keramikbausteinen.
+  context:
+    - >-
+      Drei Kontextbereiche tragen dieses Vorgehen: <strong>Lösungsdesign,
+      akzeptierte Entscheidungen und die bestehenden Engineering- und
+      Sicherheitskonventionen des Teams</strong>.
+    - >-
+      Prioritäten, Architekturentscheidungen, Schätzung, Zusage, Abnahme, Release
+      und Verantwortung bleiben bei den Menschen.
+
+technology:
+  title: Die Aufgabe bestimmt die Werkzeuge.
+  intro: Ich wähle Werkzeuge passend zum Einsatz, zur Umgebung und zum Team, das die Lösung übernimmt.
+  explanations:
+    - title: Agenten, Wissen und Schnittstellen
+      description: >-
+        Microsoft Agent Framework und geeignete Open-Source-Software für Einzel-
+        und Multi-Agenten-Systeme. Skills bündeln wiederverwendbare Fähigkeiten;
+        Retrieval-Augmented Generation (RAG) bindet relevantes Wissen ein; MCP
+        verbindet Werkzeuge; AG-UI unterstützt die Interaktion zwischen Menschen
+        und Agenten; A2A unterstützt die Kommunikation zwischen Agenten.
+    - title: Lokale Modellausführung
+      description: >-
+        Kleine Sprachmodelle, Fine-Tuning, ONNX Runtime und vLLM. Hardwaregerechte
+        Inferenz, lokale Absichtserkennung und kontrolliertes Cloud-Routing
+        bestimmen, wie Modelle in das Zielsystem passen.
+    - title: Sprache
+      description: >-
+        Aktivierungswort, Sprachaktivitätserkennung, Sprache-zu-Text, Absichts-
+        oder Modellverarbeitung und Text-zu-Sprache als vollständige Offline-
+        oder Cloud-Pipeline.
+    - title: Plattformen und Softwaregrundlagen
+      description: >-
+        Azure, passende CNCF-Technologien und .NET-Softwareentwicklung für
+        cloud-native verteilte Systeme, mit oder ohne KI.
+  selection_title: Ausgewählte Technologien
+  groups:
+    - title: KI
+      items:
+        - Microsoft Agent Framework
+        - DeepEval
+        - Azure AI Foundry
+        - ONNX Runtime
+        - vLLM
+    - title: Sprachen
+      items:
+        - "C# &amp; .NET"
+        - Python
+    - title: DevOps
+      items:
+        - Azure DevOps
+        - GitHub Actions
+        - SonarQube
+        - Backstage
+    - title: Infrastruktur
+      items:
+        - Terraform
+        - Bicep
+        - Docker
+    - title: Plattformen
+      items:
+        - Microsoft Azure
+        - CNCF-Technologien <span>(Kubernetes, Helm)</span>
+
+about:
+  mission_label: Die Mission von AIPERION
+  title: Software Engineering und Data Science verbinden, um KI zu entwickeln, die Menschen unterstützt.
+  intro: >-
+    Ich unterstütze Unternehmen dabei, Ideen in wartbare KI- und Cloud-Systeme zu
+    überführen und Teams zu befähigen, diese Systeme zu verstehen, zu betreiben
+    und weiterzuentwickeln. Von lokaler Intelligenz bis zu verteilten Plattformen
+    stehen menschliches Urteilsvermögen, klare Verantwortung und praktischer
+    Nutzen im Mittelpunkt.
+  biography:
+    - >-
+      Ich bin Christoph Hofmann, Gründer von AIPERION und KI-Ingenieur mit einem
+      starken Hintergrund in Softwarearchitektur und Softwareentwicklung.
+    - >-
+      Ich bringe <strong>10+ Jahre Erfahrung aus 50+ Projekten</strong> mit,
+      darunter große internationale Projekte und die Arbeit in
+      bereichsübergreifenden Teams.
+    - >-
+      Ich unterstütze Technologie- und Engineering-Verantwortliche in
+      Großunternehmen, KMU und im Mittelstand sowie Produkt- und Softwareteams
+      in der <strong>EMEA-Region</strong>. Zusammenarbeit und Coaching sind
+      auf <strong>Deutsch und Englisch</strong> möglich.
+  linkedin_label: LinkedIn-Profil
+  medium_label: Blog auf Medium
+  credentials_title: Ausgewählte Qualifikationen
+  legacy_label: Historische Qualifikation.
+  credentials_summary: Weitere Microsoft-Qualifikationen in .NET-Softwareentwicklung.
+  credentials_action: Microsoft-Qualifikationen ansehen
+  planned_label: Geplant
+  planned_status: KI-Zertifizierung geplant
+
+contact:
+  intro: >-
+    Wenn Sie eine KI-Idee konkretisieren, eine Architekturentscheidung treffen
+    oder eine technische Umsetzung voranbringen möchten, schreiben Sie mir,
+    welches Ziel Sie verfolgen und welche Rahmenbedingungen wichtig sind.
+    Sie erreichen mich per E-Mail oder auf LinkedIn.
+  email_label: E-Mail
+  linkedin_label: Christoph Hofmann auf LinkedIn
+
+projects:
+  title: Ausgewählte Softwareprojekte
+  intro: Werkzeuge, die ich entwickle, um agentische KI mit praktischer Softwareentwicklung zu verbinden.
+  list_label: Softwareprojekte
+  repository_label: Auf GitHub ansehen
+  readme_label: README lesen

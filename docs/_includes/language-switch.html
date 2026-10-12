@@ -1,0 +1,10 @@
+<div class="language-switch" role="group" aria-label="{{ copy.language_label }}">
+  {% for alternate in site.data.languages %}
+    {% if alternate.code == locale %}
+      <span lang="{{ alternate.code }}" aria-current="page">{{ alternate.name }}</span>
+    {% else %}
+      {% assign destination = alternate[page.page_key] | relative_url %}
+      <a href="{{ destination }}" lang="{{ alternate.code }}" hreflang="{{ alternate.code }}" data-language-page="{{ destination }}">{{ alternate.name }}</a>
+    {% endif %}
+  {% endfor %}
+</div>

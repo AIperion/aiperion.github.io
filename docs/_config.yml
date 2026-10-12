@@ -19,19 +19,31 @@
 # in the templates via {{ site.myvariable }}.
 
 title: AIPERION
+author: Christoph Hofmann
 email: info@aiperion.de
 description: >-
-  AIPERION empowers organizations to harness the transformative power of AI
-  and modern cloud technologies. We design, build, and scale AI-enhanced
-  solutions on Microsoft Azure and Cloud Native technologies.
+  Christoph Hofmann helps technology leaders and software teams with AI
+  consulting, architecture, development and coaching. Working across EMEA
+  in English and German.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://aiperion.de" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: AIperion
 linkedin_username: christophh01
+linkedin_url: https://www.linkedin.com/in/christophh01
+medium_url: https://medium.com/@hoffe86
+credentials_url: https://learn.microsoft.com/en-us/users/hoffe/credentials/certifications
 
 # Build settings
 plugins:
   - jekyll-feed
+
+# Only public website content belongs in the build; retain the starter post as source.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .bundle/
+  - _posts/2023-08-17-welcome-to-jekyll.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.

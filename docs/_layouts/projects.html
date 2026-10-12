@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{%- assign copy = site.data.locales[page.lang] -%}
+<section class="project-intro opening" id="hero" aria-labelledby="projects-title">
+  <div class="wrap">
+    <h1 id="projects-title" tabindex="-1">{{ copy.projects.title | escape }}</h1>
+    <p class="intro">{{ copy.projects.intro | escape }}</p>
+  </div>
+</section>
+<section class="section project-list" aria-label="{{ copy.projects.list_label }}">
+  <div class="wrap">
+    {% for project in site.data.projects %}
+      {% assign details = project[page.lang] %}
+      <article class="project-entry" id="{{ project.id }}" aria-labelledby="{{ project.id }}-title">
+        <div class="project-identity">
+          <h2 id="{{ project.id }}-title" tabindex="-1">{{ project.name | escape }}</h2>
+          <p class="project-kind">{{ details.category | escape }}</p>
+          <a class="text-action" href="{{ project.license | escape }}">{{ details.license_label | escape }}</a>
+        </div>
+        <div class="project-details">
+          <p class="project-summary">{{ details.summary | escape }}</p>
+          <div class="hero-actions project-actions">
+            <a class="primary" href="{{ project.repository | escape }}">{{ copy.projects.repository_label }}</a>
+            <a class="text-action" href="{{ project.readme | escape }}">{{ copy.projects.readme_label }}</a>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

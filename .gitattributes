@@ -1,0 +1,3 @@
+# Preserve the upstream license bytes, including their original trailing spaces.
+docs/assets/fonts/Manrope-OFL.txt whitespace=-blank-at-eol
+docs/assets/fonts/Newsreader-OFL.txt whitespace=-blank-at-eol

@@ -1,0 +1,314 @@
+metadata:
+  home:
+    title: AIPERION | AI engineering, architecture and coaching
+    description: >-
+      Christoph Hofmann helps technology leaders and software teams with AI
+      consulting, architecture, development and coaching. Working across EMEA
+      in English and German.
+  projects:
+    title: Software projects | AIPERION
+    description: >-
+      Selected software projects by Christoph Hofmann, starting with Agile Agents
+      for agent-assisted software delivery. Explore the source and documentation.
+
+skip_link: Skip to content
+home_label: AIPERION home
+navigation_label: Main navigation
+language_label: Language
+impressum_label: Impressum
+menu:
+  open: Menu
+  close: Close menu
+navigation:
+  - label: Services
+    section: services
+  - label: Approach
+    section: approach
+  - label: Projects
+    page: projects
+  - label: Technology
+    section: tech
+  - label: About
+    section: about
+  - label: Get in touch
+    section: contact
+    primary: true
+contact_action: Get in touch
+projects_action: Projects
+
+hero:
+  title: AI that fits your software.
+  intro: >-
+    I help technology leaders and product teams bring AI into working software
+    through consulting, architecture, development and coaching.
+  founder: Christoph Hofmann, founder of AIPERION.
+  services_action: Explore services
+  image_alt: A compact computer connected to a group of translucent glass panels.
+
+services:
+  title: What I can help you build
+  intro: >-
+    Start with the problem you need to solve. I work on AI systems, the software
+    around them and the way teams develop them. If a conventional platform is
+    the better answer, the work does not need an AI label.
+  scope_label: "The work can include:"
+  items:
+    - title: Agentic AI
+      priority: true
+      need: >-
+        An assistant needs more than a chat window. It needs relevant knowledge,
+        a clear task and access to the right tools.
+      description: >-
+        I design and build single- and multi-agent systems around those needs,
+        with explicit responsibilities and human decision points. Microsoft
+        Agent Framework, Azure and suitable open-source software are options,
+        not a fixed prescription.
+      scope:
+        - Workflow discovery and architecture, including agent responsibilities and approval points.
+        - Assistants connected to agreed knowledge sources and application tools.
+        - Agent implementation, integration checks, task-specific evaluation and a documented handover.
+    - title: Local and hybrid AI
+      priority: true
+      need: >-
+        Cloud-only processing is not always a fit for connectivity, latency,
+        data-handling needs or available hardware.
+      image: local-intelligence
+      image_alt: An unbranded compact edge computer with cooling fins and visible circuitry.
+      description: >-
+        I develop solutions with local small language models and deliberately
+        designed cloud connections. Local intent recognition and controlled
+        routing determine which tasks stay on the device or local system,
+        and which may use cloud services.
+      scope:
+        - Model selection and fine-tuning for agreed tasks.
+        - Hardware-aware inference, performance profiling, and low-level or device integration.
+        - Local/cloud routing rules and fallback behaviour, using ONNX Runtime or vLLM where appropriate.
+    - title: Agentic Agile
+      priority: true
+      need: >-
+        Coding agents change how work is carried out. People still need a shared
+        goal, time to review the work and clear acceptance criteria.
+      description: >-
+        I help teams integrate coding agents into Scrum, with an approach that
+        can also be adapted to Kanban. Human intent and decisions guide the work;
+        agents assist with preparation and implementation.
+      scope:
+        - Working agreements for readiness, context, agent tasks and human review.
+        - A workflow from concepts and stories to automated checks and human acceptance.
+        - Coaching in clear intent, critical review, and architectural and domain judgement.
+    - title: Complete voice pipelines
+      need: A spoken request should lead to a defined action, not stop at a transcript.
+      description: >-
+        I design and develop complete voice pipelines for offline operation,
+        cloud services or a deliberate combination of both, connecting speech
+        to application or device functions.
+      scope:
+        - Wake-word activation and voice activity detection (VAD).
+        - Speech-to-text (STT), intent recognition or model processing, and function integration.
+        - Text-to-speech (TTS), interaction feedback and end-to-end integration.
+    - title: Cloud-native platforms
+      need: >-
+        Not every software problem needs AI. Distributed applications still need
+        architecture that fits their workload and a platform the team can
+        operate and evolve.
+      description: >-
+        I consult on, architect and develop cloud-native distributed platforms
+        using Azure and relevant Cloud Native Computing Foundation (CNCF)
+        technologies, with or without AI.
+      scope:
+        - Architecture and service boundaries for distributed applications.
+        - Platform and application development, delivery workflows and observability.
+        - Existing-system integration, operating guidance and technical coaching.
+
+work:
+  title: Selected work
+  intro: Examples of my project work, with identifying details omitted.
+  stories:
+    - title: An agentic assistant for a healthcare imaging platform
+      paragraphs:
+        - >-
+          The project focused on user knowledge questions and analysis of
+          available imaging-device performance data.
+        - >-
+          My work used Microsoft Agent Framework, MCP, AG-UI and RAG to support
+          those tasks through an agentic assistant. The technical focus was
+          connecting available knowledge and performance data with the
+          assistant's interactions.
+        - >-
+          The scope described here is platform knowledge and device-performance
+          analysis, not clinical diagnosis.
+    - title: An offline voice companion for medical imaging equipment
+      paragraphs:
+        - >-
+          My project work covered a complete offline voice pipeline: wake word,
+          voice activity detection, speech-to-text, local small-language-model
+          intent recognition and text-to-speech.
+        - >-
+          Local intent recognition connected spoken requests with device
+          functions, without relying on cloud processing for the voice pipeline.
+        - >-
+          The design goal was to help doctors and clinical staff focus on
+          patients and reduce context switching. This is an intended benefit,
+          not a measured outcome.
+    - title: A hybrid in-vehicle AI prototype
+      wide: true
+      paragraphs:
+        - >-
+          I supported a large automotive customer in integrating agentic use
+          cases into its cloud backend and developed a hybrid prototype with
+          a small language model running in the vehicle.
+        - >-
+          Prototype capabilities included local function calling,
+          retrieval-augmented answers from vehicle manuals and conversational
+          interaction (chit-chat).
+        - >-
+          This was prototype work focused on the interaction between in-vehicle
+          inference and cloud services.
+
+approach:
+  title: Start with the problem. Keep decisions clear.
+  intro: >-
+    I work alongside your team, from an initial question to implementation and
+    handover. An engagement can focus on one decision or combine several kinds
+    of work.
+  engagements:
+    - title: Consulting
+      description: Clarify the problem, constraints and options before choosing a solution.
+    - title: Architecture
+      description: Translate goals and constraints into system boundaries, documented decisions and an implementation approach.
+    - title: Development
+      description: Build and integrate the agreed solution, with automated checks and a handover your team can use.
+    - title: Coaching
+      description: Practise expressing clear intent, reviewing critically and applying architectural and domain judgement.
+  workflow_title: When coding agents are part of the work
+  workflow_intro: >-
+    My Agentic Agile approach uses Scrum as a reference and can be adapted to
+    Kanban. Agents participate in the workflow; people remain responsible for
+    its direction and decisions.
+  steps:
+    - title: Set intent and goals.
+      description: People define what matters, what the work should achieve and which boundaries apply.
+    - title: Prepare the work with agent assistance.
+      description: >-
+        Develop concepts, architecture decision records (ADRs) and stories;
+        check stories for INVEST quality criteria and Definition of Ready (DoR)
+        consistency.
+    - title: Approve readiness.
+      description: A human decides whether a story is ready. This is not a sprint commitment.
+    - title: Plan as a team.
+      description: Account for delivery work and human review capacity. People retain estimation and commitment.
+    - title: Implement story by story.
+      description: Agents break agreed work into tasks and implement within the accepted context.
+    - title: Run automated checks.
+      description: Use the results as evidence for review, not as a substitute for acceptance.
+    - title: Accept or request rework.
+      description: People assess the work against the Definition of Done (DoD) and retain acceptance and release decisions.
+    - title: Review and adapt.
+      description: Humans lead the review and retrospective and adjust how the team works.
+  image_alt: A hand placing a blue tile between groups of glass and ceramic tiles.
+  context:
+    - >-
+      Three bodies of context support this workflow: <strong>solution design,
+      accepted decisions, and the team's existing engineering and security
+      conventions</strong>.
+    - >-
+      Priorities, architecture choices, estimation, commitment, acceptance,
+      release and accountability stay with people.
+
+technology:
+  title: Tools follow the problem.
+  intro: I choose tools around the workload, the environment and the team that will own the result.
+  explanations:
+    - title: Agents, knowledge and interfaces
+      description: >-
+        Microsoft Agent Framework and suitable open-source software for single-
+        and multi-agent systems. Skills provide reusable capabilities;
+        retrieval-augmented generation (RAG) connects relevant knowledge; MCP
+        connects tools; AG-UI supports user-facing agent interactions; A2A
+        supports communication between agents.
+    - title: Local model execution
+      description: >-
+        Small language models, fine-tuning, ONNX Runtime and vLLM. Hardware-aware
+        inference, local intent recognition and controlled cloud routing shape
+        how models fit the target system.
+    - title: Voice
+      description: >-
+        Wake word, voice activity detection, speech-to-text, intent/model
+        processing and text-to-speech, assembled as a complete offline or
+        cloud pipeline.
+    - title: Platforms and software foundations
+      description: >-
+        Azure, relevant CNCF technologies and .NET software development for
+        cloud-native distributed systems, with or without AI.
+  selection_title: Selected technologies
+  groups:
+    - title: AI
+      items:
+        - Microsoft Agent Framework
+        - DeepEval
+        - Azure AI Foundry
+        - ONNX Runtime
+        - vLLM
+    - title: Languages
+      items:
+        - "C# &amp; .NET"
+        - Python
+    - title: DevOps
+      items:
+        - Azure DevOps
+        - GitHub Actions
+        - SonarQube
+        - Backstage
+    - title: Infrastructure
+      items:
+        - Terraform
+        - Bicep
+        - Docker
+    - title: Platforms
+      items:
+        - Microsoft Azure
+        - CNCF technologies <span>(Kubernetes, Helm)</span>
+
+about:
+  mission_label: The AIPERION mission
+  title: Bridge software engineering and data science to build AI that serves people.
+  intro: >-
+    I help organizations turn ideas into maintainable AI and cloud systems, and
+    equip teams to understand, operate and improve them. From local intelligence
+    to distributed platforms, human judgment, clear responsibility and practical
+    value guide the work.
+  biography:
+    - >-
+      I'm Christoph Hofmann, founder of AIPERION and an AI engineer with a strong
+      background in software architecture and engineering.
+    - >-
+      My experience spans <strong>10+ years and 50+ projects</strong>, including
+      large international projects and work in cross-functional teams.
+    - >-
+      I work with enterprise technology and engineering leaders, SMEs and
+      mid-market businesses, and product and software teams across
+      <strong>EMEA</strong>. Collaboration and coaching are available in
+      <strong>English and German</strong>.
+  linkedin_label: LinkedIn profile
+  medium_label: Blog on Medium
+  credentials_title: Selected credentials
+  legacy_label: Legacy credential.
+  credentials_summary: Additional Microsoft qualifications in .NET software development.
+  credentials_action: View Microsoft credentials
+  planned_label: Planned
+  planned_status: AI certification planned
+
+contact:
+  intro: >-
+    If you are working through an AI idea, a software architecture decision or
+    a delivery challenge, tell me what you need to achieve and which constraints
+    matter. You can reach me by email or on LinkedIn.
+  email_label: Email
+  linkedin_label: Christoph Hofmann on LinkedIn
+
+projects:
+  title: Selected software projects
+  intro: Tools I develop to connect agentic AI with practical software delivery.
+  list_label: Software projects
+  repository_label: Explore on GitHub
+  readme_label: Read the README

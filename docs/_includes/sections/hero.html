@@ -1,0 +1,14 @@
+<section class="hero opening" id="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 id="hero-title" tabindex="-1">{{ copy.hero.title | escape }}</h1>
+      <p>{{ copy.hero.intro | escape }}</p>
+      <p class="founder">{{ copy.hero.founder | escape }}</p>
+      <div class="hero-actions">
+        <a class="primary" href="#contact">{{ copy.contact_action }}</a>
+        <a class="text-action" href="#services">{{ copy.hero.services_action }}</a>
+      </div>
+    </div>
+    {% include concept-image.html name="edge-cloud" class="hero-media" hero=true alt=copy.hero.image_alt sizes="(max-width: 1023px) calc(100vw - 40px), 56vw" %}
+  </div>
+</section>

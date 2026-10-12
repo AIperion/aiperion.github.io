@@ -1,0 +1,29 @@
+<section class="section services" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="services-title" tabindex="-1">{{ copy.services.title | escape }}</h2>
+      <p class="intro">{{ copy.services.intro | escape }}</p>
+    </div>
+    <div class="service-list">
+      {% for service in copy.services.items %}
+        <article class="service{% if service.priority %} priority{% endif %}">
+          <div class="service-lead">
+            <h3>{{ service.title | escape }}</h3>
+            <p>{{ service.need | escape }}</p>
+            {% if service.image %}
+              {% include concept-image.html name=service.image class="service-media" alt=service.image_alt sizes="(max-width: 767px) calc(100vw - 40px), 32vw" %}
+            {% endif %}
+          </div>
+          <div class="service-body">
+            <p>{{ service.description | escape }}</p>
+            <p class="scope-title">{{ copy.services.scope_label }}</p>
+            <ul class="scope-list">
+              {% for item in service.scope %}<li>{{ item | escape }}</li>{% endfor %}
+            </ul>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <a class="text-action" href="#work">{{ copy.work.title }}</a>
+  </div>
+</section>

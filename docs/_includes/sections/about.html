@@ -1,0 +1,44 @@
+<section class="section about" id="about" aria-labelledby="about-title">
+  <div class="wrap mission">
+    <p class="mission-label">{{ copy.about.mission_label }}</p>
+    <h2 id="about-title" tabindex="-1">{{ copy.about.title | escape }}</h2>
+    <p class="intro">{{ copy.about.intro | escape }}</p>
+  </div>
+  <div class="wrap about-grid">
+    <div class="biography">
+      <h3>{{ site.author }}</h3>
+      {% for paragraph in copy.about.biography %}<p>{{ paragraph }}</p>{% endfor %}
+      <ul class="profile-links">
+        <li>
+          <a class="text-action social-link" href="{{ site.linkedin_url }}">
+            <img class="social-logo" src="{{ '/assets/images/linkedin-in.png' | relative_url }}" width="635" height="540" alt="" loading="lazy" decoding="async">
+            <span>{{ copy.about.linkedin_label }}</span>
+          </a>
+        </li>
+        <li>
+          <a class="text-action social-link" href="{{ site.medium_url }}">
+            <img class="social-logo" src="{{ '/assets/images/medium-symbol.svg' | relative_url }}" width="1044" height="593" alt="" loading="lazy" decoding="async">
+            <span>{{ copy.about.medium_label }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="credentials">
+      <h3>{{ copy.about.credentials_title }}</h3>
+      <ul class="credential-list">
+        {% for credential in site.data.credentials %}
+          <li>
+            {% if credential.url %}<a href="{{ credential.url | escape }}">{{ credential.name | escape }}</a>{% else %}{{ credential.name | escape }}{% endif %}
+            {% if credential.legacy %}<small>{{ copy.about.legacy_label }}</small>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <p class="credential-summary">{{ copy.about.credentials_summary }}</p>
+      <a class="text-action" href="{{ site.credentials_url }}">{{ copy.about.credentials_action }}</a>
+      <div class="planned">
+        <h4>{{ copy.about.planned_label }}</h4>
+        <p>{{ copy.about.planned_status }}</p>
+      </div>
+    </div>
+  </div>
+</section>

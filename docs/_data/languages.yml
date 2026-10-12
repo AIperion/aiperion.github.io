@@ -1,0 +1,10 @@
+- code: en
+  name: English
+  og_locale: en_GB
+  home: /
+  projects: /projects/
+- code: de
+  name: Deutsch
+  og_locale: de_DE
+  home: /de/
+  projects: /de/projects/

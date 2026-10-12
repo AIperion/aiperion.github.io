@@ -1,0 +1,25 @@
+<header class="site-header opening">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ language.home | relative_url }}" aria-label="{{ copy.home_label }}">
+      {% include logo.svg %}
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" data-open="{{ copy.menu.open }}" data-close="{{ copy.menu.close }}" hidden>{{ copy.menu.open }}</button>
+    <div class="navigation" id="navigation">
+      <nav aria-label="{{ copy.navigation_label }}">
+        <ul class="nav-links">
+          {% for item in copy.navigation %}
+            {%- capture destination -%}
+              {%- if item.page -%}
+                {{ language[item.page] | relative_url }}
+              {%- else -%}
+                {%- unless page.page_key == 'home' -%}{{ language.home | relative_url }}{%- endunless -%}#{{ item.section }}
+              {%- endif -%}
+            {%- endcapture -%}
+            <li><a href="{{ destination }}"{% if item.primary %} class="primary"{% endif %}{% if item.page == page.page_key %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% include language-switch.html %}
+    </div>
+  </div>
+</header>

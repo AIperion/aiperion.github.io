@@ -1,0 +1,131 @@
+# solution-profile.yaml — single source of truth for repo-level operational facts.
+#
+# Every agent in the suite reads this file FIRST (alongside .github/copilot-instructions.md).
+# Profile fields override the agent's defaults; safety/security defaults remain non-negotiable.
+# `dev-lead` validates that the **required** fields below are present at Stage 0 Intake and
+# halts with a `ask_user` if any are missing.
+#
+# `copilot-instructions.md` stays as freeform prose for narrative context. This file is for
+# the operational facts agents would otherwise have to discover or guess each invocation.
+#
+# Drop unknown / not-applicable optional fields. Don't fill in placeholders.
+#
+# Bootstrapped from local repository evidence and the approved delivery choices below;
+# there was no pre-existing operational profile.
+# Delivery is Penpot first, then local website implementation. No new PR, publication,
+# production merge or deployment is authorized; reviewed legal text is still missing.
+# The user explicitly authorized no budget limitation; no cap or rate is inferred.
+cost_envelope:
+  enabled: false
+
+# ─── identity ─── REQUIRED: project_name, lifecycle_stage ─────────────────────
+identity:
+  project_name: "AIPERION"      # REQUIRED. Human-readable (e.g. "AIPERION").
+  # Conservative delivery classification for the existing public site, not release permission.
+  lifecycle_stage: "production" # REQUIRED. poc | pilot | production | sunset
+  repo_url: "https://github.com/AIperion/aiperion.github.io.git" # Canonical URL.
+  default_branch: "main"
+
+# ─── documentation ─── REQUIRED: location ─────────────────────────────────────
+documentation:
+  platform: "in-repo"           # Where the docs live as a *system*.
+                                # in-repo | separate-repo | github-wiki | ado-wiki |
+                                # confluence | sharepoint | notion | none
+                                # Empty → agents assume `in-repo`.
+  # Website setup, build/test commands, content editing and publication boundaries.
+  # The repository's docs/ directory is the published website, not developer documentation.
+  location: "README.md"         # REQUIRED. Resolves against `platform`:
+                                #   in-repo       → path, e.g. "docs/"
+                                #   separate-repo → clone URL (+ optional "#path/inside")
+                                #   *-wiki        → wiki URL
+                                #   confluence    → space or parent-page URL
+                                #   sharepoint    → document-library URL
+                                # Agents read here, and write here only when the platform is
+                                # writable from the workspace (in-repo). Otherwise they emit
+                                # the content and say where it needs to be pasted.
+  framework: "none"             # Documentation framework — the *table of contents* agents
+                                # follow when authoring or reviewing architecture docs.
+                                # arc42 | c4-only | togaf | 4+1 | custom | none
+                                # Empty → agents default to arc42 + C4 and say so.
+                                # `custom` → point `framework_reference` at the local template.
+  adr:
+    format: "none"              # madr | nygard | custom | none
+
+# ─── backlog ─── REQUIRED: platform ───────────────────────────────────────────
+backlog:
+  platform: "github-issues"     # REQUIRED. github-issues | ado-boards | jira | linear | none
+  url: "https://github.com/AIperion/aiperion.github.io/issues" # Project URL (board / org / project).
+  # Approved delivery convention; local history includes conventional feature commits.
+  branch_naming: "feat/<slug>"  # E.g. "feature/<work-item-id>-<slug>", "fix/<id>-<slug>".
+  commit_convention: "conventional-commits" # conventional-commits | gitmoji | freeform
+  # This run has no supplied parent issue or requested tracker creation; no remote writes.
+  create_tasks: false           # When true, dev-lead's Plan phase has backlog-manager create one child task
+                                #   per planned task under the parent story (provisional, tagged `pending-approval`),
+                                #   then the human approves the plan. Requires a parent story id at intake.
+
+# ─── tech_stack ─── REQUIRED: primary_languages, test_discipline ──────────────
+tech_stack:
+  primary_languages:            # REQUIRED. At least one entry.
+    # - { name: "csharp", version: "net9.0" }
+    # - { name: "python", version: "3.12" }
+    - name: "html"
+    - name: "css"
+    - name: "javascript"
+    - name: "ruby"
+  # Native website markup/styles/script; Ruby is the generator runtime, not a framework migration.
+  # docs/Gemfile.lock pins Jekyll 3.10.0, github-pages 232 and Bundler 2.4.19.
+  frameworks: ["jekyll", "github-pages"] # E.g. ["aspnetcore", "ef-core", "fastapi"]
+  package_managers: ["bundler"] # E.g. ["nuget", "pip", "uv", "npm"]
+  # Approved delivery choice, not a claim about historical practice: author, then require
+  # automated Jekyll build and rendered/browser verification after the Penpot handoff.
+  test_discipline: "test-after" # REQUIRED. tdd | bdd | test-after | none
+  build_tools: ["jekyll"]       # E.g. ["dotnet", "uv", "make"]
+  test_frameworks: ["python-unittest"]
+  # Real build and standard-library regression commands are documented in README.md.
+  # JavaScript syntax is checked with node --check; no app runtime dependency is added.
+
+# Explicit commands prevent silent skips for the unmatched HTML/Ruby stack.
+# Run from the repository root after restoring the Ruby/Bundler environment.
+quality_gates:
+  test_bar:
+    enabled: true
+    fail_fast: true
+    lint:
+      # JavaScript syntax validation, not ESLint.
+      command: ["node", "--check", "docs/assets/js/navigation.js"]
+    typecheck:
+      # Jekyll compilation is the static site's compile check.
+      command:
+        ["env", "BUNDLE_GEMFILE=docs/Gemfile", "BUNDLE_FROZEN=true",
+         "JEKYLL_ENV=production", "bundle", "_2.4.19_", "exec", "jekyll",
+         "build", "--source", "docs", "--destination", "_site"]
+    unit_test:
+      # Fast built-site regressions, with no external backend.
+      command: ["python3", "tests/test_site.py", "--site", "_site"]
+
+testing:
+  smoke:
+    # If this port is occupied, override both the command and URL together.
+    command: ["python3", "-m", "http.server", "4000", "--bind", "127.0.0.1", "--directory", "_site"]
+    url: "http://127.0.0.1:4000/"
+    timeout_s: 30
+
+# ─── infrastructure ───────────────────────────────────────────────────────────
+infrastructure:
+  deploy_verify: "off"          # off | dev — may the agent push the branch and let the pipeline
+                                # deploy to the first non-prod environment to prove pipeline + IaC +
+                                # app actually deploy? "off" (default) = validate with plan/what-if
+                                # only. "dev" requires environment_chain and cicd.platform to be set.
+
+# ─── cicd ─────────────────────────────────────────────────────────────────────
+cicd:
+  platform: "github-actions"   # github-actions | azure-pipelines | gitlab-ci | jenkins
+  pipeline_paths: [".github/workflows/jekyll-gh-pages.yml"] # E.g. [".github/workflows/", "azure-pipelines.yml"]
+  # Existing workflow builds docs/ and deploys GitHub Pages on main pushes or workflow_dispatch.
+  # This records existing behavior, not permission to trigger it. Branch-protection checks
+  # were not discovered locally; do not treat the build job as a required merge check.
+
+# ─── team_communication ───────────────────────────────────────────────────────
+team_communication:
+  # Four statically rendered routes: /, /de/, /projects/ and /de/projects/.
+  ui_languages: ["en", "de"]    # E.g. ["en", "de"] — what the product ships in.

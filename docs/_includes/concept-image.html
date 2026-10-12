@@ -1,0 +1,10 @@
+{%- assign image_path = '/assets/images/' | append: include.name -%}
+{%- assign small_image = image_path | append: '-768.webp' | relative_url -%}
+{%- assign large_image = image_path | append: '-1536.webp' | relative_url -%}
+<figure class="{{ include.class }} concept-figure">
+  <img src="{% if include.hero %}{{ large_image }}{% else %}{{ small_image }}{% endif %}"
+       srcset="{{ small_image }} 768w, {{ large_image }} 1536w"
+       sizes="{{ include.sizes }}" width="1536" height="1024"
+       {% if include.hero %}fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %}
+       alt="{{ include.alt | escape }}">
+</figure>

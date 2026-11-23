@@ -1,4 +1,18 @@
 (() => {
+  document.querySelectorAll(".obfuscated-contact").forEach((placeholder) => {
+    const scheme = placeholder.dataset.contactScheme;
+    const encoded = placeholder.dataset.contactValue;
+    if (!["mailto", "tel"].includes(scheme) || !encoded) {
+      console.error("Invalid obfuscated contact link.");
+      return;
+    }
+    const link = document.createElement("a");
+    link.href = `${scheme}:${encoded.split("").reverse().join("")}`;
+    link.className = placeholder.className;
+    link.textContent = placeholder.textContent;
+    placeholder.replaceWith(link);
+  });
+
   const toggle = document.querySelector(".menu-toggle");
   const navigation = document.querySelector("#navigation");
   const header = document.querySelector(".site-header");

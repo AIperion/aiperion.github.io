@@ -6,9 +6,9 @@
     </div>
     <div class="service-list">
       {% for service in copy.services.items %}
-        <article class="service{% if service.priority %} priority{% endif %}">
+        <article class="service{% if service.priority %} priority{% endif %}" id="{{ service.id }}">
           <div class="service-lead">
-            <h3>{{ service.title | escape }}</h3>
+            <h3 tabindex="-1">{{ service.title | escape }}</h3>
             <p>{{ service.need | escape }}</p>
             {% if service.image %}
               {% include concept-image.html name=service.image class="service-media" alt=service.image_alt sizes="(max-width: 767px) calc(100vw - 40px), 32vw" %}
@@ -24,6 +24,6 @@
         </article>
       {% endfor %}
     </div>
-    <a class="text-action" href="#work">{{ copy.work.title }}</a>
+    <a class="text-action" href="{{ language.work | relative_url }}">{{ copy.work.title }}</a>
   </div>
 </section>

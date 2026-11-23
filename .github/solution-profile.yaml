@@ -12,8 +12,8 @@
 #
 # Bootstrapped from local repository evidence and the approved delivery choices below;
 # there was no pre-existing operational profile.
-# Delivery is Penpot first, then local website implementation. No new PR, publication,
-# production merge or deployment is authorized; reviewed legal text is still missing.
+# Delivery is Penpot first, then local website implementation and verification.
+# Production merge/deployment require separate approval; legal notices need professional review.
 # The user explicitly authorized no budget limitation; no cap or rate is inferred.
 cost_envelope:
   enabled: false
@@ -58,7 +58,7 @@ backlog:
   # Approved delivery convention; local history includes conventional feature commits.
   branch_naming: "feat/<slug>"  # E.g. "feature/<work-item-id>-<slug>", "fix/<id>-<slug>".
   commit_convention: "conventional-commits" # conventional-commits | gitmoji | freeform
-  # This run has no supplied parent issue or requested tracker creation; no remote writes.
+  # No parent issue or tracker-task creation has been requested.
   create_tasks: false           # When true, dev-lead's Plan phase has backlog-manager create one child task
                                 #   per planned task under the parent story (provisional, tagged `pending-approval`),
                                 #   then the human approves the plan. Requires a parent story id at intake.
@@ -127,5 +127,5 @@ cicd:
 
 # ─── team_communication ───────────────────────────────────────────────────────
 team_communication:
-  # Four statically rendered routes: /, /de/, /projects/ and /de/projects/.
+  # Eighteen static routes: fourteen bilingual main pages, plus legal and privacy notices.
   ui_languages: ["en", "de"]    # E.g. ["en", "de"] — what the product ships in.

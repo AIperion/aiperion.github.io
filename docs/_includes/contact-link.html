@@ -1,0 +1,5 @@
+{%- assign contact_label = include.label -%}
+{%- if include.scheme == 'mailto' -%}
+  {%- assign contact_label = include.value | replace: '@', ' [at] ' | replace: '.', ' [dot] ' -%}
+{%- endif -%}
+<span class="obfuscated-contact" data-contact-scheme="{{ include.scheme | escape }}" data-contact-value="{{ include.value | split: '' | reverse | join: '' | escape }}">{{ contact_label | escape }}</span>

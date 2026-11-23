@@ -15,7 +15,7 @@
                 {%- unless page.page_key == 'home' -%}{{ language.home | relative_url }}{%- endunless -%}#{{ item.section }}
               {%- endif -%}
             {%- endcapture -%}
-            <li><a href="{{ destination }}"{% if item.primary %} class="primary"{% endif %}{% if item.page == page.page_key %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+            <li><a href="{{ destination }}"{% if item.primary %} class="primary"{% endif %}{% if item.page and item.page == page.page_key %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
           {% endfor %}
         </ul>
       </nav>

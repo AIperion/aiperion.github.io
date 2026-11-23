@@ -2,10 +2,7 @@
 layout: default
 ---
 {%- assign copy = site.data.locales[page.lang] -%}
+{%- assign language = site.data.languages | where: 'code', page.lang | first -%}
 {% include sections/hero.html %}
-{% include sections/services.html %}
-{% include sections/work.html %}
-{% include sections/approach.html %}
-{% include sections/technology.html %}
-{% include sections/about.html %}
+{% include sections/home-summary.html %}
 {% include sections/contact.html %}

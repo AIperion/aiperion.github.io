@@ -20,10 +20,16 @@ process.env.TMPDIR = path.resolve(runtime);
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE);
 
 const routes = [
-  { route: "", name: "home-en", home: "", other: "de/", heading: "hero-title" },
-  { route: "de/", name: "home-de", home: "de/", other: "", heading: "hero-title" },
-  { route: "projects/", name: "projects-en", home: "", other: "de/projects/", heading: "projects-title" },
-  { route: "de/projects/", name: "projects-de", home: "de/", other: "projects/", heading: "projects-title" },
+  { route: "", name: "home-en", kind: "home", home: "", other: "de/", heading: "hero-title" },
+  { route: "de/", name: "home-de", kind: "home", home: "de/", other: "", heading: "hero-title" },
+  { route: "projects/", name: "projects-en", kind: "projects", home: "", other: "de/projects/", heading: "projects-title" },
+  { route: "de/projects/", name: "projects-de", kind: "projects", home: "de/", other: "projects/", heading: "projects-title" },
+  ...["services", "work", "approach", "technology", "about"].flatMap((kind) =>
+    ["en", "de"].map((locale) => ({
+      route: (locale === "de" ? "de/" : "") + kind + "/",
+      name: `${kind}-${locale}`, kind, home: locale === "de" ? "de/" : "",
+      other: (locale === "de" ? "" : "de/") + kind + "/", heading: "page-title",
+    }))),
 ];
 const widths = [320, 390, 768, 1024, 1199, 1200, 1440];
 const supportingSelectors = [".service-media img", ".workflow-media img"];
@@ -188,6 +194,9 @@ async function footerAndLayout(item, width) {
     });
     const header = document.querySelector(".site-header");
     const footer = document.querySelector(".site-footer");
+    const hero = document.querySelector("#hero");
+    const heroImage = hero.querySelector("img");
+    const heroCopy = hero.querySelector(".page-intro-copy");
     const ids = [...document.querySelectorAll("[id]")].map((e) => e.id);
     return {
       logos, idsUnique: ids.length === new Set(ids).size,
@@ -197,6 +206,8 @@ async function footerAndLayout(item, width) {
       footerMediaCount: footer.querySelectorAll("svg, img").length,
       footerLinkCount: footer.querySelectorAll("a").length,
       footerLegal: box(footer.querySelector(".footer-legal")),
+      footerPrivacy: box(footer.querySelector(".footer-privacy")),
+      footerLegalGroup: box(footer.querySelector(".footer-legal-links")),
       footerLanguage: box(footer.querySelector(".language-switch")),
       footerBackground: getComputedStyle(footer).backgroundColor,
       headerHeight: box(header).height, headerPosition: getComputedStyle(header).position,
@@ -205,18 +216,30 @@ async function footerAndLayout(item, width) {
       menuHidden: document.querySelector("#navigation").hidden,
       toggleHidden: document.querySelector(".menu-toggle").hidden,
       imageCount: document.querySelectorAll("main img").length,
+      headingFont: getComputedStyle(document.querySelector("h1")).fontFamily,
+      hero: box(hero), heroImage: box(heroImage), heroCopy: heroCopy ? box(heroCopy) : null,
+      heroSource: heroImage.getAttribute("src"), heroAlt: heroImage.alt,
+      heroPriority: heroImage.getAttribute("fetchpriority"),
+      heroLoading: heroImage.getAttribute("loading"), heroNatural: [heroImage.naturalWidth, heroImage.naturalHeight],
       conceptImageCount: document.querySelectorAll(".concept-figure img").length,
       socialLogoCount: document.querySelectorAll("main .social-logo").length,
     };
   });
   assert.equal(values.overflow, false, `${item.route} at ${width}px has no overflow`);
   assert.equal(values.idsUnique, true);
-  assert.equal(values.footerText, "Impressum English Deutsch");
-  assert.deepEqual(values.footerItems, ["footer-legal", "language-switch"]);
+  assert.equal(values.footerText, `Impressum ${item.route.startsWith("de/") ? "Datenschutz" : "Privacy"} English Deutsch`);
+  assert.deepEqual(values.footerItems, ["footer-legal-links", "language-switch"]);
   assert.equal(values.footerMediaCount, 0);
-  assert.equal(values.footerLinkCount, 1, "Only the other language is linked until legal content is supplied");
-  assert.equal(values.footerLegal.top, values.footerLanguage.top, "The minimal footer fits on one row");
-  assert.ok(values.footerLegal.right + 28 <= values.footerLanguage.left);
+  assert.equal(values.footerLinkCount, 3, "Both legal pages and the other language are linked");
+  assert.equal(values.footerLegal.top, values.footerPrivacy.top);
+  assert.ok(values.footerLegal.right + 20 <= values.footerPrivacy.left);
+  assert.ok(values.footerPrivacy.height >= 48);
+  if (values.footerLegalGroup.top === values.footerLanguage.top) {
+    assert.ok(values.footerLegalGroup.right + 28 <= values.footerLanguage.left);
+  } else {
+    assert.ok(values.footerLegalGroup.bottom + 28 <= values.footerLanguage.top,
+      "Legal links and the language picker wrap without overlap on narrow screens");
+  }
   assert.equal(values.footerBackground, "rgb(220, 238, 240)");
   assert.equal(values.headerPosition, "fixed");
   assert.equal(values.headerHeight, width < 1200 ? 72 : 80);
@@ -224,9 +247,27 @@ async function footerAndLayout(item, width) {
   assert.equal(values.scrollPadding, values.headerHeight);
   assert.equal(values.menuHidden, width < 1200);
   assert.equal(values.toggleHidden, width >= 1200);
-  assert.equal(values.imageCount, item.route.includes("projects") ? 0 : 6);
-  assert.equal(values.conceptImageCount, item.route.includes("projects") ? 0 : 3);
-  assert.equal(values.socialLogoCount, item.route.includes("projects") ? 0 : 3);
+  const imageCounts = {
+    home: [4, 3, 1], projects: [1, 1, 0], services: [2, 2, 0],
+    work: [1, 1, 0], approach: [2, 2, 0], technology: [1, 1, 0], about: [3, 1, 2],
+  };
+  assert.deepEqual([values.imageCount, values.conceptImageCount, values.socialLogoCount], imageCounts[item.kind]);
+  assert.ok(values.headingFont.includes("Manrope"), "Startup typography uses the self-hosted sans family");
+  assert.ok(values.heroAlt.length > 20);
+  assert.equal(values.heroPriority, "high");
+  assert.notEqual(values.heroLoading, "lazy");
+  assert.ok(Math.abs(values.heroNatural[0] - values.heroNatural[1] * 1.5) <= 1.5,
+    "The responsive image retains its 3:2 proportions after density rounding");
+  const heroTopic = item.kind === "home" ? "services" : item.kind === "approach" ? "approach-review" : item.kind;
+  assert.equal(values.heroSource, new URL(`assets/images/startup-${heroTopic}-1536.webp`, base).pathname);
+  assert.ok(values.heroImage.bottom <= values.hero.bottom, "The topic image belongs inside the introductory area");
+  if (values.heroCopy) {
+    if (width < 768) {
+      assert.ok(values.heroImage.top >= values.heroCopy.bottom + 27, "The mobile image follows the introduction");
+    } else {
+      assert.ok(values.heroImage.left >= values.heroCopy.right + 39, "Desktop places the image beside the introduction");
+    }
+  }
   assert.equal(values.logos[0].fill, "rgb(240, 244, 255)");
   assert.equal(values.logos[0].rawFill, "#F0F4FF");
   for (const logo of values.logos) {
@@ -259,12 +300,16 @@ async function footerAndLayout(item, width) {
   }
   await page.locator("main a").last().focus();
   await page.keyboard.press("Tab");
+  await visibleBelowHeader(page, ".footer-legal", true);
+  await page.keyboard.press("Tab");
+  await visibleBelowHeader(page, ".footer-privacy", true);
+  await page.keyboard.press("Tab");
   await visibleBelowHeader(page, ".site-footer a[data-language-page]", true);
   const focus = await page.locator(".site-footer a[data-language-page]").evaluate((e) => {
     const style = getComputedStyle(e);
     return [style.outlineWidth, style.outlineOffset, style.outlineColor];
   });
-  assert.deepEqual(focus, ["3px", "4px", "rgb(29, 78, 216)"]);
+  assert.deepEqual(focus, ["3px", "4px", "rgb(33, 89, 209)"]);
   if (width === 320 || width === 1440) {
     if (item.name === "home-en" && width === 1440 || item.name === "projects-de" && width === 320) {
       const filename = `footer-${item.name}-${width}-focus.png`;
@@ -289,7 +334,7 @@ async function socialLinkJourney(item, width) {
   page = await context.newPage();
   observe(page);
   await page.setViewportSize({ width, height: width === 320 ? 480 : 900 });
-  await visit(page, item.route + "#about");
+  await visit(page, item.home + "about/#about");
   await settle(page);
   await page.keyboard.press("Tab");
   const links = [
@@ -298,6 +343,10 @@ async function socialLinkJourney(item, width) {
     ["#contact .social-link", "linkedin-in.png"],
   ];
   for (const [selector, asset] of links) {
+    if (selector.startsWith("#contact")) {
+      await visit(page, item.home + "#contact");
+      await settle(page);
+    }
     const link = page.locator(selector);
     await link.focus();
     await visibleBelowHeader(page, selector, true);
@@ -341,6 +390,8 @@ async function socialLinkJourney(item, width) {
     report.socialLinks.push({ route: item.route, width, selector, ...state });
   }
   await capture(page, `social-contact-${item.name}-${width}`);
+  await visit(page, item.home + "about/#about");
+  await settle(page);
   await page.locator("#about .profile-links li:first-child a").focus();
   await visibleBelowHeader(page, "#about .profile-links li:first-child a", true);
   await capture(page, `social-profiles-${item.name}-${width}`);
@@ -358,22 +409,26 @@ async function navigationJourneys(item, width) {
   await page.keyboard.press("Enter");
   await visibleBelowHeader(page, "main", true);
   if (width < 1200) await page.locator(".menu-toggle").click();
-  await page.locator('#navigation a[href$="#services"]').click();
-  await page.waitForURL(url(item.home + "#services"));
+  await page.locator('#navigation a[href$="/services/"]').click();
+  await page.waitForURL(url(item.home + "services/"));
   await settle(page);
   await visibleBelowHeader(page, "#services h2");
   if (width < 1200) await page.locator(".menu-toggle").click();
   const languageLink = page.locator("#navigation a[data-language-page]");
   const otherHome = item.home ? "" : "de/";
-  assert.equal(await languageLink.getAttribute("href"), new URL(otherHome + "#services", base).pathname + "#services");
+  assert.equal(await languageLink.getAttribute("href"), new URL(otherHome + "services/", base).pathname);
   await languageLink.click();
-  await page.waitForURL(url(otherHome + "#services"));
+  await page.waitForURL(url(otherHome + "services/"));
   await settle(page);
   await visibleBelowHeader(page, "#services h2");
 
-  const hashes = item.route.includes("projects")
+  const section = item.kind === "technology" ? "tech" : item.kind;
+  const hashes = item.kind === "projects"
     ? ["agile-agents", "agile-agents-title", "content", "projects-title"]
-    : ["services", "work", "approach", "tech", "about", "contact", "content", "hero-title"];
+    : item.kind === "home"
+      ? ["services", "work", "approach", "tech", "about", "contact", "content", "hero-title"]
+      : [section, `${section}-title`, "content", "page-title",
+        ...(item.kind === "services" ? ["agentic-ai", "local-hybrid-ai", "agentic-agile", "voice", "cloud-native"] : [])];
   for (const hash of hashes) {
     await visit(page, item.route + "#" + hash);
     await settle(page);
@@ -397,8 +452,8 @@ async function navigationJourneys(item, width) {
     await page.locator("#navigation a[data-language-page]").focus();
     await page.keyboard.press("Tab");
     assert.equal(await page.locator(".menu-toggle").getAttribute("aria-expanded"), "false");
-    await visibleBelowHeader(page, item.route.includes("projects")
-      ? ".project-identity .text-action" : ".hero-actions .primary", true);
+    await visibleBelowHeader(page, item.kind === "projects"
+      ? ".project-identity .text-action" : item.kind === "home" ? ".hero-actions .primary" : ".page-intro .text-action", true);
     await page.keyboard.press("Shift+Tab");
     assert.equal(await page.locator(".menu-toggle").evaluate((e) => e === document.activeElement), true);
     await page.keyboard.press("Enter");
@@ -407,7 +462,8 @@ async function navigationJourneys(item, width) {
     assert.equal(await page.locator(".menu-toggle").evaluate((e) => e === document.activeElement), true);
     assert.equal(await page.locator("#navigation").isVisible(), false);
   }
-  const footerHash = item.route.includes("projects") ? "agile-agents" : "work";
+  const footerHash = item.kind === "projects" ? "agile-agents" : item.kind === "home" ? "work"
+    : item.kind === "services" ? "local-hybrid-ai" : section;
   await visit(page, item.route + "#" + footerHash);
   await settle(page);
   const footerLanguage = page.locator(".site-footer a[data-language-page]");
@@ -421,6 +477,13 @@ async function navigationJourneys(item, width) {
   assert.equal(page.url(), url(item.other + "#" + footerHash));
   await settle(page);
   await visibleBelowHeader(page, "#" + footerHash);
+  if (item.kind !== "home") {
+    if (width < 1200) await page.locator(".menu-toggle").click();
+    await page.locator('#navigation a[href$="#contact"]').click();
+    await page.waitForURL(url(otherHome + "#contact"));
+    await settle(page);
+    await visibleBelowHeader(page, "#contact h2");
+  }
   await page.close();
 }
 
@@ -470,9 +533,9 @@ async function resizingMenu() {
   assert.equal(tall.contentOffset, tall.row, "Reserved content space follows the enlarged closed row");
   assert.equal(tall.menu, 368);
   assert.equal(tall.header, 480);
-  await page.locator('#navigation a[href="#services"]').focus();
+  await page.locator('#navigation a[href="#contact"]').focus();
   await page.keyboard.press("Enter");
-  await visibleBelowHeader(page, "#services h2", true);
+  await visibleBelowHeader(page, "#contact h2", true);
   await tallControl.evaluate((e) => e.remove());
   report.menuResize = { closedContentTop, expandedContentTop, short, tall };
   await page.close();
@@ -511,7 +574,7 @@ function installMotionSampler() {
     return record();
   };
   document.addEventListener("DOMContentLoaded", () => {
-    window.introMotion = window.sampleMotion(".hero-copy, .hero-media, .project-intro h1, .project-intro .intro", 650);
+    window.introMotion = window.sampleMotion(".hero-copy, .hero-media, .project-intro h1, .project-intro .intro, .page-intro h1, .page-intro .intro", 650);
   }, { once: true });
 }
 
@@ -546,6 +609,8 @@ function installSupportingProbe() {
 }
 
 async function supportingImageJourney(item, width) {
+  const selectors = item.kind === "services" ? [supportingSelectors[0]]
+    : item.kind === "approach" ? [supportingSelectors[1]] : supportingSelectors;
   page = await context.newPage();
   observe(page);
   await page.setViewportSize({ width, height: width === 320 ? 480 : 900 });
@@ -556,7 +621,7 @@ async function supportingImageJourney(item, width) {
   assert.equal(await page.evaluate(() => window.supportingMotions.length), 0, "No supporting motion before entry");
   const result = { route: item.route, width, images: [] };
   report.supportingImages.push(result);
-  for (const selector of supportingSelectors) {
+  for (const selector of selectors) {
     assert.equal(await page.locator(selector).evaluate((e) => getComputedStyle(e).opacity), "1",
       "The image is already visible before its observer fires");
     await page.locator(selector).evaluate((e) => e.scrollIntoView({ block: "center" }));
@@ -592,8 +657,8 @@ async function supportingImageJourney(item, width) {
     assert.equal(await page.evaluate((selector) =>
       window.supportingMotions.filter((m) => m.selector === selector).length, selector), 1);
   }
-  assert.deepEqual(await page.evaluate(() => window.supportingMotions.map((m) => m.selector)), supportingSelectors,
-    "Only the two supporting images animate, once each");
+  assert.deepEqual(await page.evaluate(() => window.supportingMotions.map((m) => m.selector)), selectors,
+    "Only the page's supporting images animate, once each");
   await page.close();
 }
 
@@ -737,7 +802,7 @@ async function transparency() {
       border: getComputedStyle(e).boxShadow,
       textColor: getComputedStyle(e.querySelector(".nav-links a")).color,
     }));
-    assert.equal(style.background, "rgba(16, 42, 54, 0.85)");
+    assert.equal(style.background, "rgba(16, 30, 50, 0.85)");
     assert.equal(style.blur, "blur(16px)");
     assert.notEqual(style.border, "none");
     await page.locator(".header-inner").evaluate((e) => { e.style.visibility = "hidden"; });
@@ -788,7 +853,7 @@ async function transparency() {
     blur: getComputedStyle(document.querySelector("header")).backdropFilter,
   }));
   if (report.reducedTransparency.matches) {
-    assert.equal(report.reducedTransparency.background, "rgb(16, 42, 54)");
+    assert.equal(report.reducedTransparency.background, "rgb(16, 30, 50)");
     assert.equal(report.reducedTransparency.blur, "none");
   } else {
     report.limits.push("This browser did not expose reduced-transparency emulation; no support claim is made.");
@@ -811,7 +876,7 @@ async function transparency() {
   report.noBackdropFallback = await page.locator("header").evaluate((e) => ({
     background: getComputedStyle(e).backgroundColor, blur: getComputedStyle(e).backdropFilter,
   }));
-  assert.deepEqual(report.noBackdropFallback, { background: "rgb(16, 42, 54)", blur: "none" });
+  assert.deepEqual(report.noBackdropFallback, { background: "rgb(16, 30, 50)", blur: "none" });
   await page.close();
 }
 
@@ -843,7 +908,8 @@ async function withoutEnhancement() {
         await page.locator("main a").first().focus();
         const bounds = await page.locator("main a").first().boundingBox();
         assert.ok(bounds.y >= 0 && bounds.y + bounds.height <= (width === 320 ? 480 : 900));
-        const heading = item.route.includes("projects") ? "agile-agents" : "services";
+        const heading = item.kind === "projects" ? "agile-agents" : item.kind === "home" ? "services"
+          : item.kind === "technology" ? "tech" : item.kind;
         await visit(page, item.route + "#" + heading);
         await settle(page);
         assert.ok((await page.locator("#" + heading).boundingBox()).y >= 0);
@@ -871,6 +937,123 @@ async function withoutEnhancement() {
   await page.keyboard.press("Enter");
   await visibleBelowHeader(page, "#contact h2", true);
   await page.close();
+}
+
+async function legalNoticeJourney(width, kind = "impressum") {
+  const privacy = kind === "privacy";
+  const englishRoute = privacy ? "privacy/" : "impressum/";
+  const germanRoute = privacy ? "de/datenschutz/" : "de/impressum/";
+  const englishTitle = privacy ? "Privacy notice" : "Legal notice";
+  const germanTitle = privacy ? "Datenschutzerklärung" : "Impressum";
+  const selector = privacy ? ".footer-privacy" : ".footer-legal";
+  page = await context.newPage();
+  observe(page);
+  await page.setViewportSize({ width, height: 900 });
+  for (const locale of ["", "de/"]) {
+    await visit(page, locale);
+    await page.evaluate(async () => {
+      const images = [...document.images];
+      images.forEach((image) => { image.loading = "eager"; });
+      await Promise.all(images.map((image) => image.decode()));
+    });
+    const legalLink = page.locator(selector);
+    await legalLink.focus();
+    await page.keyboard.press("Enter");
+    await page.waitForURL(url(locale ? germanRoute : englishRoute));
+    await settle(page);
+    assert.equal(await page.locator("h1").textContent(), locale ? germanTitle : englishTitle);
+    assert.equal(await page.locator(".legal-copy").getAttribute("lang"), locale ? "de" : "en");
+    if (privacy && locale) {
+      const isolatedFinalCharacter = await page.locator("h1").evaluate((heading) => {
+        const text = heading.firstChild;
+        const last = document.createRange();
+        last.setStart(text, text.length - 1);
+        last.setEnd(text, text.length);
+        const previous = document.createRange();
+        previous.setStart(text, text.length - 2);
+        previous.setEnd(text, text.length - 1);
+        return last.getBoundingClientRect().top !== previous.getBoundingClientRect().top;
+      });
+      assert.equal(isolatedFinalCharacter, false, "The German privacy heading has no isolated final letter");
+    }
+    if (!locale) {
+      assert.ok((await page.locator(".legal-translation-note").textContent()).includes("automatically translated"));
+      assert.equal(await page.locator(".legal-translation-note a").getAttribute("href"),
+        new URL(germanRoute, base).pathname);
+    }
+    assert.equal(await page.locator(".legal-copy a[href^='mailto:']").getAttribute("href"),
+      "mailto:info@aiperion.de");
+    assert.equal(await page.locator(".legal-copy a[href^='mailto:']").textContent(),
+      "info [at] aiperion [dot] de");
+    assert.equal(await page.locator(".legal-copy a[href^='tel:']").textContent(),
+      "08133 / 907 12 30");
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    assert.equal(await page.locator(selector).getAttribute("aria-current"), "page");
+    await capture(page, `${kind}-${locale ? "de" : "en"}-${width}`);
+    const other = locale ? englishRoute : germanRoute;
+    await page.locator(".site-footer a[data-language-page]").focus();
+    await page.keyboard.press("Enter");
+    await page.waitForURL(url(other));
+    assert.equal(await page.locator("html").getAttribute("lang"), locale ? "en" : "de");
+    assert.equal(await page.locator("h1").textContent(), locale ? englishTitle : germanTitle);
+  }
+  await page.close();
+}
+
+async function maskedContactJourney(width) {
+  const contactRoutes = ["", "de/", "impressum/", "de/impressum/", "privacy/", "de/datenschutz/"];
+  page = await context.newPage();
+  observe(page);
+  await page.setViewportSize({ width, height: 900 });
+  for (const route of contactRoutes) {
+    await visit(page, route);
+    await page.evaluate(async () => {
+      const images = [...document.images];
+      images.forEach((image) => { image.loading = "eager"; });
+      await Promise.all(images.map((image) => image.decode()));
+      window.activatedContact = null;
+      document.addEventListener("click", (event) => {
+        const link = event.target.closest("a.obfuscated-contact");
+        if (!link) return;
+        event.preventDefault();
+        window.activatedContact = link.getAttribute("href");
+      });
+    });
+    const links = page.locator("a.obfuscated-contact");
+    assert.equal(await links.count(), route === "" || route === "de/" ? 1 : 2);
+    for (let index = 0; index < await links.count(); index++) {
+      const link = links.nth(index);
+      const href = await link.getAttribute("href");
+      assert.equal(await link.textContent(),
+        href.startsWith("tel:") ? "08133 / 907 12 30" : "info [at] aiperion [dot] de");
+      assert.ok(["mailto:info@aiperion.de", "tel:+4981339071230"].includes(href));
+      await link.focus();
+      await page.keyboard.press("Enter");
+      assert.equal(await page.evaluate(() => window.activatedContact), href);
+    }
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+  }
+  await page.close();
+
+  const noJS = await context.browser().newContext({ javaScriptEnabled: false, viewport: { width, height: 900 } });
+  try {
+    await localOnly(noJS);
+    const fallback = await noJS.newPage();
+    observe(fallback);
+    for (const route of contactRoutes) {
+      await visit(fallback, route);
+      assert.equal(await fallback.locator("a.obfuscated-contact").count(), 0);
+      const text = await fallback.locator(".obfuscated-contact").allTextContents();
+      assert.deepEqual(text, route !== "" && route !== "de/"
+        ? ["08133 / 907 12 30", "info [at] aiperion [dot] de"]
+        : ["info [at] aiperion [dot] de"]);
+      assert.equal(await fallback.locator(".obfuscated-contact").first().isVisible(), true);
+      assert.equal(await fallback.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    }
+  } finally {
+    await noJS.unrouteAll({ behavior: "wait" });
+    await noJS.close();
+  }
 }
 
 (async () => {
@@ -905,15 +1088,24 @@ async function withoutEnhancement() {
     await check("Mobile menu resize, breakpoint focus and measured header growth", resizingMenu);
     await check("Rendered glass contrast, reduced transparency and solid fallback", transparency);
     await check("No JavaScript and no ResizeObserver fallbacks", withoutEnhancement);
-    for (const item of routes.filter((item) => !item.route.includes("projects"))) {
+    for (const item of routes.filter((item) => item.kind === "home")) {
       for (const width of [320, 1440]) {
         await check(`${item.name} local social logos and accessible links at ${width}px`,
           () => socialLinkJourney(item, width));
+      }
+    }
+    for (const item of routes.filter((item) => ["home", "services", "approach"].includes(item.kind))) {
+      for (const width of [320, 1440]) {
         await check(`${item.name} supporting images enter once at ${width}px`,
           () => supportingImageJourney(item, width));
       }
     }
     await check("Supporting images honor live/initial reduced motion and unsupported APIs", supportingImageFallbacks);
+    for (const width of [320, 390, 1440]) {
+      await check(`Impressum footer and language navigation at ${width}px`, () => legalNoticeJourney(width));
+      await check(`Privacy footer and language navigation at ${width}px`, () => legalNoticeJourney(width, "privacy"));
+      await check(`Masked contact links and no-JS fallback at ${width}px`, () => maskedContactJourney(width));
+    }
     page = await context.newPage();
     observe(page);
     await visit(page, "404.html");

@@ -3,6 +3,14 @@
     "home_title": "AIPERION | AI engineering, architecture and coaching",
     "home_description": "Christoph Hofmann helps technology leaders and software teams with AI consulting, architecture, development and coaching. Working across EMEA in English and German.",
     "project_title": "Software projects | AIPERION",
+    "detail_titles": {
+      "services": "AI engineering services | AIPERION",
+      "work": "Selected work | AIPERION",
+      "approach": "Philosophy and approach | AIPERION",
+      "technology": "Technology | AIPERION",
+      "about": "About Christoph Hofmann | AIPERION"
+    },
+    "philosophy": ["Solve the right problem.", "Keep people in control.", "Build for the team that stays."],
     "hero": "AI that fits your software.",
     "services": ["Agentic AI", "Local and hybrid AI", "Agentic Agile", "Complete voice pipelines", "Cloud-native platforms"],
     "engagements": ["Consulting", "Architecture", "Development", "Coaching"],
@@ -21,10 +29,18 @@
     "technology_groups": ["AI", "Languages", "DevOps", "Infrastructure", "Platforms"],
     "cncf": "CNCF technologies (Kubernetes, Helm)",
     "image_alts": [
-      "A compact computer connected to a group of translucent glass panels.",
-      "An unbranded compact edge computer with cooling fins and visible circuitry.",
-      "A hand placing a blue tile between groups of glass and ceramic tiles."
+      "Concept illustration of an engineer and a cyan holographic collaborator reviewing an agent workflow on a shared screen.",
+      "Concept illustration of a human hand placing a processor on an edge-computing board beside a cyan holographic hand.",
+      "Concept illustration of an engineer and a cyan holographic collaborator reviewing software components, agent tasks and human decision points on a planning wall."
     ],
+    "header_alts": {
+      "services": "Concept illustration of an engineer and a cyan holographic collaborator reviewing an agent workflow on a shared screen.",
+      "work": "Concept illustration of a passenger interacting with a cyan voice-assistant visualization inside a vehicle.",
+      "approach": "Concept illustration of a developer and a cyan holographic collaborator reviewing software tasks on a monitor.",
+      "technology": "Concept illustration of a human hand placing a processor on an edge-computing board beside a cyan holographic hand.",
+      "about": "Concept illustration of human and cyan holographic hands holding a software-system sketch with agents, tools, context and human review.",
+      "projects": "Concept illustration of a developer reviewing code, an application preview and a software-component diagram on a monitor in a warmly lit workspace."
+    },
     "stories": [
       {
         "title": "An agentic assistant for a healthcare imaging platform",
@@ -60,6 +76,14 @@
     "home_title": "AIPERION | KI-Engineering, Architektur und Coaching",
     "home_description": "Christoph Hofmann unterstützt Technologieverantwortliche und Softwareteams mit KI-Beratung, Architektur, Entwicklung und Coaching. In EMEA, auf Deutsch und Englisch.",
     "project_title": "Softwareprojekte | AIPERION",
+    "detail_titles": {
+      "services": "KI-Engineering und Leistungen | AIPERION",
+      "work": "Ausgewählte Projektarbeit | AIPERION",
+      "approach": "Philosophie und Vorgehensweise | AIPERION",
+      "technology": "Technologie | AIPERION",
+      "about": "Über Christoph Hofmann | AIPERION"
+    },
+    "philosophy": ["Die richtige Aufgabe lösen.", "Menschen entscheiden lassen.", "Das Team langfristig befähigen."],
     "hero": "KI, die zu Ihrer Software passt.",
     "services": ["Agentic AI", "Lokale und hybride KI", "Agentic Agile", "Vollständige Sprachpipelines", "Cloud-native Plattformen"],
     "engagements": ["Beratung", "Architektur", "Entwicklung", "Coaching"],
@@ -78,10 +102,18 @@
     "technology_groups": ["KI", "Sprachen", "DevOps", "Infrastruktur", "Plattformen"],
     "cncf": "CNCF-Technologien (Kubernetes, Helm)",
     "image_alts": [
-      "Ein kompakter Computer, verbunden mit einer Gruppe transparenter Glasflächen.",
-      "Ein kompakter Edge-Computer ohne Markenkennzeichen, mit Kühlrippen und sichtbarer Elektronik.",
-      "Eine Hand setzt einen blauen Baustein zwischen Gruppen aus Glas- und Keramikbausteinen."
+      "Konzeptillustration einer Ingenieurin und eines cyanfarbenen holografischen Mitarbeiters, die einen Agentenablauf auf einem gemeinsamen Bildschirm prüfen.",
+      "Konzeptillustration einer menschlichen Hand, die neben einer cyanfarbenen holografischen Hand einen Prozessor auf einer Edge-Computing-Platine platziert.",
+      "Konzeptillustration eines Ingenieurs und eines cyanfarbenen holografischen Mitarbeiters, die Softwarebausteine, Agentenaufgaben und menschliche Entscheidungspunkte an einer Planungswand prüfen."
     ],
+    "header_alts": {
+      "services": "Konzeptillustration einer Ingenieurin und eines cyanfarbenen holografischen Mitarbeiters, die einen Agentenablauf auf einem gemeinsamen Bildschirm prüfen.",
+      "work": "Konzeptillustration einer Beifahrerin, die im Fahrzeug mit einer cyanfarbenen Visualisierung eines Sprachassistenten interagiert.",
+      "approach": "Konzeptillustration einer Entwicklerin und einer cyanfarbenen holografischen Mitarbeiterin, die Softwareaufgaben auf einem Monitor prüfen.",
+      "technology": "Konzeptillustration einer menschlichen Hand, die neben einer cyanfarbenen holografischen Hand einen Prozessor auf einer Edge-Computing-Platine platziert.",
+      "about": "Konzeptillustration einer menschlichen und einer cyanfarbenen holografischen Hand mit einer Softwaresystem-Skizze zu Agenten, Werkzeugen, Kontext und menschlicher Prüfung.",
+      "projects": "Konzeptillustration eines Entwicklers, der Code, eine Anwendungsvorschau und ein Softwarebaustein-Diagramm auf einem Monitor in einem warm beleuchteten Arbeitsraum prüft."
+    },
     "stories": [
       {
         "title": "Ein agentischer Assistent für eine Plattform zur medizinischen Bildgebung",

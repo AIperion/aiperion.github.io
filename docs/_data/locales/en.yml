@@ -10,31 +10,140 @@ metadata:
     description: >-
       Selected software projects by Christoph Hofmann, starting with Agile Agents
       for agent-assisted software delivery. Explore the source and documentation.
+  services:
+    title: AI engineering services | AIPERION
+    description: >-
+      Agentic AI, local and hybrid models, Agentic Agile, voice pipelines and
+      cloud-native platforms. Consulting, architecture, development and coaching
+      with Christoph Hofmann.
+  work:
+    title: Selected work | AIPERION
+    description: >-
+      Anonymous examples of Christoph Hofmann's engineering work: healthcare
+      platform assistants, offline voice pipelines and a hybrid in-vehicle AI
+      prototype, with clear scope and limitations.
+  approach:
+    title: Philosophy and approach | AIPERION
+    description: >-
+      Start with the problem, keep decisions with people and build software teams
+      can own. How Christoph Hofmann combines consulting, architecture,
+      development, coaching and Agentic Agile.
+  technology:
+    title: Technology | AIPERION
+    description: >-
+      Tools follow the problem. Explore the agent frameworks, local inference,
+      voice, Azure, .NET and cloud-native technologies Christoph Hofmann uses
+      to build maintainable systems.
+  about:
+    title: About Christoph Hofmann | AIPERION
+    description: >-
+      Meet Christoph Hofmann, founder of AIPERION. AI engineering and software
+      architecture experience across 50+ projects, with collaboration and
+      coaching in English and German across EMEA.
+
+  impressum:
+    title: Legal notice | AIPERION
+    description: Legal notice and contact details for Christoph Hofmann, operator of the AIPERION website. Automatically translated; only the German version is legally binding.
+  privacy:
+    title: Privacy notice | AIPERION
+    description: How AIPERION handles website access and enquiries, including GitHub Pages hosting, Proton Mail, retention and your data protection rights.
 
 skip_link: Skip to content
 home_label: AIPERION home
+home_action: Home
 navigation_label: Main navigation
 language_label: Language
 impressum_label: Impressum
+impressum_title: Legal notice
+privacy_label: Privacy
+privacy_title: Privacy notice
+legal_navigation_label: Legal information
 menu:
   open: Menu
   close: Close menu
 navigation:
   - label: Services
-    section: services
+    page: services
   - label: Approach
-    section: approach
+    page: approach
   - label: Projects
     page: projects
   - label: Technology
-    section: tech
+    page: technology
   - label: About
-    section: about
+    page: about
   - label: Get in touch
     section: contact
     primary: true
 contact_action: Get in touch
 projects_action: Projects
+
+pages:
+  services:
+    title: Services
+    intro: Practical AI and software engineering, from the first decision to a system your team can own.
+    image_alt: Concept illustration of an engineer and a cyan holographic collaborator reviewing an agent workflow on a shared screen.
+  work:
+    title: Work
+    intro: Engineering in context, with a clear distinction between project scope, prototypes and intended benefits.
+    image_alt: Concept illustration of a passenger interacting with a cyan voice-assistant visualization inside a vehicle.
+  approach:
+    title: Philosophy and approach
+    intro: Useful software, human judgement and teams that can carry the work forward.
+    image: startup-approach-review
+    image_alt: Concept illustration of a developer and a cyan holographic collaborator reviewing software tasks on a monitor.
+  technology:
+    title: Technology
+    intro: A toolkit for the problem, not a prescribed stack.
+    image_alt: Concept illustration of a human hand placing a processor on an edge-computing board beside a cyan holographic hand.
+  about:
+    title: About Christoph Hofmann
+    intro: AI engineering grounded in software architecture, development and collaboration.
+    image_alt: Concept illustration of human and cyan holographic hands holding a software-system sketch with agents, tools, context and human review.
+
+homepage:
+  philosophy:
+    title: Useful AI. Clear responsibility.
+    intro: >-
+      AIPERION connects software engineering and data science to build AI that
+      serves people. I start with your problem, not with a model or framework.
+    principles:
+      - title: Solve the right problem.
+        description: >-
+          Understand the work, constraints and practical value first. Sometimes
+          the right answer is conventional software, not AI.
+      - title: Keep people in control.
+        description: >-
+          Agents can prepare and implement work. People set direction, make
+          architectural decisions and retain acceptance and release responsibility.
+      - title: Build for the team that stays.
+        description: >-
+          Clear boundaries, automated checks and a usable handover matter.
+          Your team should understand, operate and improve the result.
+    action: How I work
+  services:
+    title: Where I can help
+    intro: >-
+      Consulting, architecture, development and coaching, focused on the systems
+      you need and the people who build them.
+    action: Explore services
+  work:
+    title: Engineering in practice
+    intro: Selected client projects in healthcare and automotive.
+    action: Explore selected work
+  technology:
+    title: The right tools for your constraints.
+    intro: >-
+      From local inference and complete voice pipelines to Azure and cloud-native
+      platforms. Choices follow the workload, data needs and operating environment.
+    action: Explore the technology
+  about:
+    title: Meet the engineer behind AIPERION.
+    intro: >-
+      I'm Christoph Hofmann. I combine AI engineering with software architecture
+      and hands-on development, working alongside teams across EMEA in English
+      and German.
+    action: More about me
 
 hero:
   title: AI that fits your software.
@@ -43,7 +152,7 @@ hero:
     through consulting, architecture, development and coaching.
   founder: Christoph Hofmann, founder of AIPERION.
   services_action: Explore services
-  image_alt: A compact computer connected to a group of translucent glass panels.
+  image_alt: Concept illustration of an engineer and a cyan holographic collaborator reviewing an agent workflow on a shared screen.
 
 services:
   title: What I can help you build
@@ -53,7 +162,9 @@ services:
     the better answer, the work does not need an AI label.
   scope_label: "The work can include:"
   items:
-    - title: Agentic AI
+    - id: agentic-ai
+      title: Agentic AI
+      summary: Assistants and agent workflows connected to relevant knowledge and tools, with explicit responsibilities and human decision points.
       priority: true
       need: >-
         An assistant needs more than a chat window. It needs relevant knowledge,
@@ -67,13 +178,15 @@ services:
         - Workflow discovery and architecture, including agent responsibilities and approval points.
         - Assistants connected to agreed knowledge sources and application tools.
         - Agent implementation, integration checks, task-specific evaluation and a documented handover.
-    - title: Local and hybrid AI
+    - id: local-hybrid-ai
+      title: Local and hybrid AI
+      summary: Small language models and controlled cloud connections, designed around your hardware, connectivity, latency and data-handling needs.
       priority: true
       need: >-
         Cloud-only processing is not always a fit for connectivity, latency,
         data-handling needs or available hardware.
-      image: local-intelligence
-      image_alt: An unbranded compact edge computer with cooling fins and visible circuitry.
+      image: startup-technology
+      image_alt: Concept illustration of a human hand placing a processor on an edge-computing board beside a cyan holographic hand.
       description: >-
         I develop solutions with local small language models and deliberately
         designed cloud connections. Local intent recognition and controlled
@@ -83,7 +196,9 @@ services:
         - Model selection and fine-tuning for agreed tasks.
         - Hardware-aware inference, performance profiling, and low-level or device integration.
         - Local/cloud routing rules and fallback behaviour, using ONNX Runtime or vLLM where appropriate.
-    - title: Agentic Agile
+    - id: agentic-agile
+      title: Agentic Agile
+      summary: Bring coding agents into Scrum or Kanban without handing over human judgement, team commitment or acceptance.
       priority: true
       need: >-
         Coding agents change how work is carried out. People still need a shared
@@ -96,7 +211,9 @@ services:
         - Working agreements for readiness, context, agent tasks and human review.
         - A workflow from concepts and stories to automated checks and human acceptance.
         - Coaching in clear intent, critical review, and architectural and domain judgement.
-    - title: Complete voice pipelines
+    - id: voice
+      title: Complete voice pipelines
+      summary: Connect spoken requests to application and device functions, from wake word to spoken feedback, offline, in the cloud or both.
       need: A spoken request should lead to a defined action, not stop at a transcript.
       description: >-
         I design and develop complete voice pipelines for offline operation,
@@ -106,7 +223,9 @@ services:
         - Wake-word activation and voice activity detection (VAD).
         - Speech-to-text (STT), intent recognition or model processing, and function integration.
         - Text-to-speech (TTS), interaction feedback and end-to-end integration.
-    - title: Cloud-native platforms
+    - id: cloud-native
+      title: Cloud-native platforms
+      summary: Distributed applications and delivery foundations your team can operate and evolve, with or without AI.
       need: >-
         Not every software problem needs AI. Distributed applications still need
         architecture that fits their workload and a platform the team can
@@ -125,6 +244,7 @@ work:
   intro: Examples of my project work, with identifying details omitted.
   stories:
     - title: An agentic assistant for a healthcare imaging platform
+      summary: Platform knowledge and imaging-device performance analysis through an agentic assistant. Not clinical diagnosis.
       paragraphs:
         - >-
           The project focused on user knowledge questions and analysis of
@@ -138,6 +258,7 @@ work:
           The scope described here is platform knowledge and device-performance
           analysis, not clinical diagnosis.
     - title: An offline voice companion for medical imaging equipment
+      summary: A complete local voice pipeline connecting spoken requests to device functions. Reducing context switching was a design goal, not a measured result.
       paragraphs:
         - >-
           My project work covered a complete offline voice pipeline: wake word,
@@ -151,6 +272,7 @@ work:
           patients and reduce context switching. This is an intended benefit,
           not a measured outcome.
     - title: A hybrid in-vehicle AI prototype
+      summary: Prototype work combining local language-model inference in the vehicle with cloud services, function calling and answers from vehicle manuals.
       wide: true
       paragraphs:
         - >-
@@ -205,7 +327,7 @@ approach:
       description: People assess the work against the Definition of Done (DoD) and retain acceptance and release decisions.
     - title: Review and adapt.
       description: Humans lead the review and retrospective and adjust how the team works.
-  image_alt: A hand placing a blue tile between groups of glass and ceramic tiles.
+  image_alt: Concept illustration of an engineer and a cyan holographic collaborator reviewing software components, agent tasks and human decision points on a planning wall.
   context:
     - >-
       Three bodies of context support this workflow: <strong>solution design,
@@ -309,6 +431,7 @@ contact:
 projects:
   title: Selected software projects
   intro: Tools I develop to connect agentic AI with practical software delivery.
+  image_alt: Concept illustration of a developer reviewing code, an application preview and a software-component diagram on a monitor in a warmly lit workspace.
   list_label: Software projects
   repository_label: Explore on GitHub
   readme_label: Read the README

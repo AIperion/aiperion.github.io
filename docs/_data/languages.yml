@@ -3,8 +3,22 @@
   og_locale: en_GB
   home: /
   projects: /projects/
+  services: /services/
+  work: /work/
+  approach: /approach/
+  technology: /technology/
+  about: /about/
+  impressum: /impressum/
+  privacy: /privacy/
 - code: de
   name: Deutsch
   og_locale: de_DE
   home: /de/
   projects: /de/projects/
+  services: /de/services/
+  work: /de/work/
+  approach: /de/approach/
+  technology: /de/technology/
+  about: /de/about/
+  impressum: /de/impressum/
+  privacy: /de/datenschutz/

@@ -1,6 +1,9 @@
 <footer class="site-footer{% if page.page_key == 'projects' %} project-footer{% endif %}">
   <div class="wrap footer-inner">
-    <span class="footer-legal">{{ copy.impressum_label }}</span>
+    <nav class="footer-legal-links" aria-label="{{ copy.legal_navigation_label }}">
+      <a class="footer-legal" href="{{ language.impressum | relative_url }}"{% if page.page_key == 'impressum' %} aria-current="page"{% endif %}>{{ copy.impressum_label }}</a>
+      <a class="footer-privacy" href="{{ language.privacy | relative_url }}"{% if page.page_key == 'privacy' %} aria-current="page"{% endif %}>{{ copy.privacy_label }}</a>
+    </nav>
     {% include language-switch.html %}
   </div>
 </footer>

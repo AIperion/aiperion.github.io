@@ -11,31 +11,144 @@ metadata:
       Ausgewählte Softwareprojekte von Christoph Hofmann, beginnend mit Agile
       Agents für agentenunterstützte Softwareentwicklung. Quellcode und
       Dokumentation entdecken.
+  services:
+    title: KI-Engineering und Leistungen | AIPERION
+    description: >-
+      Agentic AI, lokale und hybride KI, Agentic Agile, Sprachpipelines und
+      cloud-native Plattformen. Beratung, Architektur, Entwicklung und Coaching
+      mit Christoph Hofmann.
+  work:
+    title: Ausgewählte Projektarbeit | AIPERION
+    description: >-
+      Anonymisierte Beispiele aus Christoph Hofmanns Engineering-Arbeit:
+      Plattformassistenten, Offline-Sprachpipelines und ein hybrider KI-Prototyp
+      im Fahrzeug, mit klar benanntem Umfang und Grenzen.
+  approach:
+    title: Philosophie und Vorgehensweise | AIPERION
+    description: >-
+      Die Aufgabe zuerst, Entscheidungen beim Menschen und Software, die Teams
+      selbst weiterentwickeln können. Beratung, Architektur, Entwicklung,
+      Coaching und Agentic Agile mit Christoph Hofmann.
+  technology:
+    title: Technologie | AIPERION
+    description: >-
+      Die Aufgabe bestimmt die Werkzeuge. Agenten-Frameworks, lokale Inferenz,
+      Sprachverarbeitung, Azure, .NET und cloud-native Technologien für wartbare
+      Systeme mit Christoph Hofmann.
+  about:
+    title: Über Christoph Hofmann | AIPERION
+    description: >-
+      Christoph Hofmann, Gründer von AIPERION: KI-Engineering und Softwarearchitektur
+      mit Erfahrung aus 50+ Projekten. Zusammenarbeit und Coaching in der
+      EMEA-Region auf Deutsch und Englisch.
+
+  impressum:
+    title: Impressum | AIPERION
+    description: Angaben zum Anbieter und Kontaktinformationen von Christoph Hofmann, dem Betreiber der AIPERION-Website.
+  privacy:
+    title: Datenschutzerklärung | AIPERION
+    description: Informationen zu Websitezugriffen und Anfragen bei AIPERION, einschließlich GitHub Pages, Proton Mail, Speicherdauer und Ihren Datenschutzrechten.
 
 skip_link: Zum Inhalt springen
 home_label: AIPERION Startseite
+home_action: Startseite
 navigation_label: Hauptnavigation
 language_label: Sprache
 impressum_label: Impressum
+impressum_title: Impressum
+privacy_label: Datenschutz
+privacy_title: Datenschutzerklärung
+legal_navigation_label: Rechtliche Informationen
 menu:
   open: Menü
   close: Menü schließen
 navigation:
   - label: Leistungen
-    section: services
+    page: services
   - label: Vorgehensweise
-    section: approach
+    page: approach
   - label: Projekte
     page: projects
   - label: Technologie
-    section: tech
+    page: technology
   - label: Über mich
-    section: about
+    page: about
   - label: Kontakt aufnehmen
     section: contact
     primary: true
 contact_action: Kontakt aufnehmen
 projects_action: Projekte
+
+pages:
+  services:
+    title: Leistungen
+    intro: KI und Software Engineering für die Praxis, von der ersten Entscheidung bis zu einem System, das Ihr Team übernehmen kann.
+    image_alt: Konzeptillustration einer Ingenieurin und eines cyanfarbenen holografischen Mitarbeiters, die einen Agentenablauf auf einem gemeinsamen Bildschirm prüfen.
+  work:
+    title: Projektarbeit
+    intro: Engineering im Kontext, mit klarer Trennung zwischen Projektumfang, Prototypen und angestrebtem Nutzen.
+    image_alt: Konzeptillustration einer Beifahrerin, die im Fahrzeug mit einer cyanfarbenen Visualisierung eines Sprachassistenten interagiert.
+  approach:
+    title: Philosophie und Vorgehensweise
+    intro: Nützliche Software, menschliches Urteilsvermögen und Teams, die die Arbeit selbst weiterführen können.
+    image: startup-approach-review
+    image_alt: Konzeptillustration einer Entwicklerin und einer cyanfarbenen holografischen Mitarbeiterin, die Softwareaufgaben auf einem Monitor prüfen.
+  technology:
+    title: Technologie
+    intro: Ein Werkzeugkasten für die Aufgabe, kein vorgeschriebener Stack.
+    image_alt: Konzeptillustration einer menschlichen Hand, die neben einer cyanfarbenen holografischen Hand einen Prozessor auf einer Edge-Computing-Platine platziert.
+  about:
+    title: Über Christoph Hofmann
+    intro: KI-Engineering mit einem Fundament aus Softwarearchitektur, Entwicklung und Zusammenarbeit.
+    image_alt: Konzeptillustration einer menschlichen und einer cyanfarbenen holografischen Hand mit einer Softwaresystem-Skizze zu Agenten, Werkzeugen, Kontext und menschlicher Prüfung.
+
+homepage:
+  philosophy:
+    title: Nützliche KI. Klare Verantwortung.
+    intro: >-
+      AIPERION verbindet Software Engineering und Data Science, um KI zu
+      entwickeln, die Menschen unterstützt. Am Anfang steht Ihre Aufgabe,
+      nicht ein Modell oder Framework.
+    principles:
+      - title: Die richtige Aufgabe lösen.
+        description: >-
+          Arbeitsabläufe, Rahmenbedingungen und praktischen Nutzen zuerst
+          verstehen. Manchmal ist klassische Software die bessere Antwort als KI.
+      - title: Menschen entscheiden lassen.
+        description: >-
+          Agenten können Arbeit vorbereiten und umsetzen. Menschen geben die
+          Richtung vor, treffen Architekturentscheidungen und verantworten
+          Abnahme und Release.
+      - title: Das Team langfristig befähigen.
+        description: >-
+          Klare Grenzen, automatisierte Prüfungen und eine nutzbare Übergabe
+          zählen. Ihr Team soll die Lösung verstehen, betreiben und
+          weiterentwickeln können.
+    action: So arbeite ich
+  services:
+    title: Wobei ich Sie unterstütze
+    intro: >-
+      Beratung, Architektur, Entwicklung und Coaching. Im Mittelpunkt stehen
+      die Systeme, die Sie brauchen, und die Menschen, die sie entwickeln.
+    action: Leistungen ansehen
+  work:
+    title: Engineering in der Praxis
+    intro: Einblicke in Kundenprojekte im Gesundheitswesen und in der Automobilbranche.
+    action: Projektarbeit ansehen
+  technology:
+    title: Passende Werkzeuge für Ihre Rahmenbedingungen.
+    intro: >-
+      Von lokaler Inferenz und vollständigen Sprachpipelines bis zu Azure und
+      cloud-nativen Plattformen. Aufgabe, Datenanforderungen und Betriebsumgebung
+      bestimmen die Auswahl.
+    action: Technologien kennenlernen
+  about:
+    title: Der Ingenieur hinter AIPERION.
+    intro: >-
+      Ich bin Christoph Hofmann. Ich verbinde KI-Engineering mit
+      Softwarearchitektur und praktischer Entwicklung und begleite Teams
+      in der EMEA-Region auf Deutsch und Englisch.
+    action: Mehr über mich
 
 hero:
   title: KI, die zu Ihrer Software passt.
@@ -44,7 +157,7 @@ hero:
     Software zu integrieren. Mit Beratung, Architektur, Entwicklung und Coaching.
   founder: Christoph Hofmann, Gründer von AIPERION.
   services_action: Leistungen ansehen
-  image_alt: Ein kompakter Computer, verbunden mit einer Gruppe transparenter Glasflächen.
+  image_alt: Konzeptillustration einer Ingenieurin und eines cyanfarbenen holografischen Mitarbeiters, die einen Agentenablauf auf einem gemeinsamen Bildschirm prüfen.
 
 services:
   title: Was ich mit Ihnen entwickeln kann
@@ -55,7 +168,9 @@ services:
     Vorhaben kein KI-Etikett.
   scope_label: "Mögliche Leistungen:"
   items:
-    - title: Agentic AI
+    - id: agentic-ai
+      title: Agentic AI
+      summary: Assistenten und Agentenabläufe mit Anbindung an relevantes Wissen und Werkzeuge, klaren Zuständigkeiten und menschlichen Entscheidungspunkten.
       priority: true
       need: >-
         Ein Assistent braucht mehr als ein Chatfenster: relevantes Wissen,
@@ -69,13 +184,15 @@ services:
         - Analyse von Arbeitsabläufen und Architektur, einschließlich Agentenaufgaben und Freigabepunkten.
         - Assistenten mit Anbindung an vereinbarte Wissensquellen und Anwendungswerkzeuge.
         - Implementierung, Integrationsprüfungen, aufgabenspezifische Evaluation und dokumentierte Übergabe.
-    - title: Lokale und hybride KI
+    - id: local-hybrid-ai
+      title: Lokale und hybride KI
+      summary: Kleine Sprachmodelle und kontrollierte Cloud-Anbindungen, abgestimmt auf Hardware, Konnektivität, Latenz und Anforderungen an die Datenverarbeitung.
       priority: true
       need: >-
         Eine reine Cloud-Verarbeitung passt nicht zu jeder Anforderung an
         Konnektivität, Latenz, Datenverarbeitung oder verfügbare Hardware.
-      image: local-intelligence
-      image_alt: Ein kompakter Edge-Computer ohne Markenkennzeichen, mit Kühlrippen und sichtbarer Elektronik.
+      image: startup-technology
+      image_alt: Konzeptillustration einer menschlichen Hand, die neben einer cyanfarbenen holografischen Hand einen Prozessor auf einer Edge-Computing-Platine platziert.
       description: >-
         Ich entwickle Lösungen mit lokalen kleinen Sprachmodellen und gezielt
         gestalteten Cloud-Anbindungen. Lokale Absichtserkennung und kontrolliertes
@@ -85,7 +202,9 @@ services:
         - Modellauswahl und Fine-Tuning für vereinbarte Aufgaben.
         - Hardwaregerechte Inferenz, Performance-Analyse sowie hardwarenahe Entwicklung und Geräteintegration.
         - Regeln für lokales und Cloud-Routing sowie Rückfallverhalten, bei Bedarf mit ONNX Runtime oder vLLM.
-    - title: Agentic Agile
+    - id: agentic-agile
+      title: Agentic Agile
+      summary: Coding-Agenten in Scrum oder Kanban integrieren, ohne menschliches Urteilsvermögen, Teamzusagen oder Abnahme aus der Hand zu geben.
       priority: true
       need: >-
         Coding-Agenten verändern, wie Arbeit ausgeführt wird. Menschen brauchen
@@ -100,7 +219,9 @@ services:
         - Teamvereinbarungen zu Umsetzungsreife, Kontext, Agentenaufgaben und menschlicher Prüfung.
         - Ein Ablauf von Konzepten und Stories bis zu automatisierten Prüfungen und menschlicher Abnahme.
         - Coaching für klare Zielbeschreibungen, kritische Prüfung sowie architektonisches und fachliches Urteilsvermögen.
-    - title: Vollständige Sprachpipelines
+    - id: voice
+      title: Vollständige Sprachpipelines
+      summary: Gesprochene Anfragen mit Anwendungs- und Gerätefunktionen verbinden, vom Aktivierungswort bis zur Sprachausgabe, offline, in der Cloud oder kombiniert.
       need: Eine gesprochene Anfrage soll zu einer definierten Aktion führen, nicht bei der Transkription enden.
       description: >-
         Ich konzipiere und entwickle vollständige Sprachpipelines für den
@@ -110,7 +231,9 @@ services:
         - Aktivierungswort und Sprachaktivitätserkennung (VAD).
         - Sprache-zu-Text (STT), Absichtserkennung oder Modellverarbeitung und Funktionsanbindung.
         - Text-zu-Sprache (TTS), Rückmeldungen im Dialog und durchgängige Integration.
-    - title: Cloud-native Plattformen
+    - id: cloud-native
+      title: Cloud-native Plattformen
+      summary: Verteilte Anwendungen und Auslieferungsprozesse, die Ihr Team betreiben und weiterentwickeln kann, mit oder ohne KI.
       need: >-
         Nicht jedes Softwareproblem braucht KI. Verteilte Anwendungen benötigen
         eine Architektur, die zur Last und zur Aufgabe passt, und eine Plattform,
@@ -129,6 +252,7 @@ work:
   intro: Beispiele aus meiner Projektarbeit, ohne identifizierende Angaben.
   stories:
     - title: Ein agentischer Assistent für eine Plattform zur medizinischen Bildgebung
+      summary: Plattformwissen und die Analyse von Geräteleistungsdaten durch einen agentischen Assistenten. Keine klinische Diagnostik.
       paragraphs:
         - >-
           Im Mittelpunkt standen Wissensfragen der Nutzenden und die Analyse
@@ -142,6 +266,7 @@ work:
           Der hier beschriebene Umfang betrifft Plattformwissen und
           Geräteleistungsdaten, nicht die klinische Diagnostik.
     - title: Ein Offline-Sprachassistent für medizinische Bildgebungsgeräte
+      summary: Eine vollständige lokale Sprachpipeline verbindet Anfragen mit Gerätefunktionen. Weniger Kontextwechsel waren ein Gestaltungsziel, kein gemessenes Ergebnis.
       paragraphs:
         - >-
           Meine Projektarbeit umfasste eine vollständige Offline-Sprachpipeline:
@@ -157,6 +282,7 @@ work:
           Fokus auf Patientinnen und Patienten zu ermöglichen und Kontextwechsel
           zu verringern. Das ist ein angestrebter Nutzen, kein gemessenes Ergebnis.
     - title: Ein hybrider KI-Prototyp im Fahrzeug
+      summary: Prototypenarbeit mit lokalem Sprachmodell im Fahrzeug und Cloud-Diensten, Funktionsaufrufen und Antworten aus Fahrzeughandbüchern.
       wide: true
       paragraphs:
         - >-
@@ -211,7 +337,7 @@ approach:
       description: Menschen bewerten die Arbeit anhand der Definition of Done (DoD) und entscheiden weiterhin über Abnahme und Release.
     - title: Prüfen und anpassen.
       description: Menschen leiten Review und Retrospektive und entwickeln die Arbeitsweise weiter.
-  image_alt: Eine Hand setzt einen blauen Baustein zwischen Gruppen aus Glas- und Keramikbausteinen.
+  image_alt: Konzeptillustration eines Ingenieurs und eines cyanfarbenen holografischen Mitarbeiters, die Softwarebausteine, Agentenaufgaben und menschliche Entscheidungspunkte an einer Planungswand prüfen.
   context:
     - >-
       Drei Kontextbereiche tragen dieses Vorgehen: <strong>Lösungsdesign,
@@ -318,6 +444,7 @@ contact:
 projects:
   title: Ausgewählte Softwareprojekte
   intro: Werkzeuge, die ich entwickle, um agentische KI mit praktischer Softwareentwicklung zu verbinden.
+  image_alt: Konzeptillustration eines Entwicklers, der Code, eine Anwendungsvorschau und ein Softwarebaustein-Diagramm auf einem Monitor in einem warm beleuchteten Arbeitsraum prüft.
   list_label: Softwareprojekte
   repository_label: Auf GitHub ansehen
   readme_label: README lesen

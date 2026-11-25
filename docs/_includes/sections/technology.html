@@ -1,0 +1,27 @@
+<section class="section technology" id="tech" aria-labelledby="tech-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="tech-title" tabindex="-1">{{ copy.technology.title | escape }}</h2>
+      <p class="intro">{{ copy.technology.intro | escape }}</p>
+    </div>
+    <div class="technology-context">
+      {% for explanation in copy.technology.explanations %}
+        <article>
+          <h3>{{ explanation.title | escape }}</h3>
+          <p>{{ explanation.description | escape }}</p>
+        </article>
+      {% endfor %}
+    </div>
+    <h3 class="technology-selection-title">{{ copy.technology.selection_title }}</h3>
+    <div class="technology-layout">
+      {% for group in copy.technology.groups %}
+        <article class="technology-group">
+          <h4>{{ group.title | escape }}</h4>
+          <ul class="tech-list">
+            {% for item in group.items %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+- id: agile-agents
+  name: Agile Agents
+  repository: https://github.com/hoffe86/agile-agents
+  readme: https://github.com/hoffe86/agile-agents/blob/main/README.md
+  license: https://github.com/hoffe86/agile-agents/blob/main/LICENSE
+  en:
+    category: Agent-assisted software delivery
+    license_label: MIT license
+    summary: >-
+      A GitHub Copilot CLI plugin suite for agent-assisted software delivery.
+      It coordinates specialist agents through research, planning, implementation
+      and review, using shared repository context, quality gates and cost controls.
+      A human approves the plan before execution proceeds within defined boundaries.
+  de:
+    category: Agentenunterstützte Softwareentwicklung
+    license_label: MIT-Lizenz
+    summary: >-
+      Eine Plugin-Sammlung für agentenunterstützte Softwareentwicklung mit GitHub
+      Copilot CLI. Sie koordiniert spezialisierte Agenten durch Recherche, Planung,
+      Umsetzung und Review, gestützt auf gemeinsamen Projektkontext,
+      Qualitätsprüfungen und Kostenkontrollen. Ein Mensch gibt den Plan frei,
+      bevor die Ausführung innerhalb definierter Grenzen startet.

@@ -1,30 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{%- assign locale = page.lang | default: 'en' -%}
+{%- assign copy = site.data.locales[locale] -%}
+{%- assign language = site.data.languages | where: 'code', locale | first -%}
+<!doctype html>
+<html lang="{{ locale }}">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace }}" />
-  <meta name="theme-color" content="#050B18" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-  <meta property="og:description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace }}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/logo.svg' | relative_url }}" />
+  {% include head.html %}
 </head>
-<body>
-  {{ content }}
+<body{% if page.page_key == 'projects' %} class="projects-page"{% endif %}>
+  <a class="skip-link" href="#content">{{ copy.skip_link }}</a>
+  {% if page.page_key %}{% include header.html %}{% endif %}
+  <main id="content" tabindex="-1">
+    {{ content }}
+  </main>
+  {% if page.page_key %}{% include footer.html %}{% endif %}
 </body>
 </html>

@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{%- assign copy = site.data.locales[page.lang] -%}
+{%- assign language = site.data.languages | where: 'code', page.lang | first -%}
+{%- assign details = copy.pages[page.page_key] -%}
+<section class="page-intro opening" id="hero" aria-labelledby="page-title">
+  <div class="wrap page-intro-grid">
+    <div class="page-intro-copy">
+      <a class="text-action" href="{{ language.home | relative_url }}">{{ copy.home_action }}</a>
+      <h1 id="page-title" tabindex="-1">{{ details.title | escape }}</h1>
+      <p class="intro">{{ details.intro | escape }}</p>
+    </div>
+    {%- assign header_image = 'startup-' | append: page.page_key -%}
+    {%- assign header_image = details.image | default: header_image -%}
+    {% include concept-image.html name=header_image class="page-intro-media" hero=true alt=details.image_alt sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) 45vw, 560px" %}
+  </div>
+</section>
+{% include sections/{{ page.section }}.html %}
+<div class="detail-next wrap">
+  <a class="text-action" href="{{ language.home | relative_url }}#contact">{{ copy.contact_action }}</a>
+</div>

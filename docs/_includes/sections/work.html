@@ -1,0 +1,18 @@
+<section class="section work" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="work-title" tabindex="-1">{{ copy.work.title | escape }}</h2>
+      <p class="intro">{{ copy.work.intro | escape }}</p>
+    </div>
+    <div class="stories">
+      {% for story in copy.work.stories %}
+        <article class="story{% if story.wide %} story-wide{% endif %}">
+          <h3>{{ story.title | escape }}</h3>
+          {% if story.wide %}<div>{% endif %}
+            {% for paragraph in story.paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}
+          {% if story.wide %}</div>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

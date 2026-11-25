@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{%- assign copy = site.data.locales[page.lang] -%}
+{%- assign language = site.data.languages | where: 'code', page.lang | first -%}
+{%- assign legal_title = copy.impressum_title -%}
+{%- if page.page_key == 'privacy' -%}
+  {%- assign legal_title = copy.privacy_title -%}
+{%- endif -%}
+<section class="legal-intro opening" id="hero" aria-labelledby="page-title">
+  <div class="wrap">
+    <a class="text-action" href="{{ language.home | relative_url }}">{{ copy.home_action }}</a>
+    <h1 id="page-title" tabindex="-1">{{ legal_title | escape }}</h1>
+  </div>
+</section>
+<div class="section">
+  <article class="legal-copy wrap" lang="{{ page.lang }}" aria-labelledby="page-title">
+    {% if page.page_key == 'privacy' %}
+      {% if page.lang == 'en' %}
+        {% include privacy-notice-en.html %}
+      {% else %}
+        {% include privacy-notice.html %}
+      {% endif %}
+    {% elsif page.lang == 'en' %}
+      {% include legal-notice-en.html %}
+    {% else %}
+      {% include legal-notice.html %}
+    {% endif %}
+  </article>
+</div>

@@ -407,3 +407,7 @@ FodyWeavers.xsd
 
 # macOS system files
 .DS_Store
+
+# Local Jekyll output and isolated website build/browser tooling
+/_site/
+/.website-build/

@@ -73,7 +73,7 @@ tech_stack:
     - name: "javascript"
     - name: "ruby"
   # Native website markup/styles/script; Ruby is the generator runtime, not a framework migration.
-  # docs/Gemfile.lock pins Jekyll 3.10.0, github-pages 232 and Bundler 2.4.19.
+  # docs/Gemfile.lock pins Jekyll 3.10.0, github-pages 233 and Bundler 2.4.19.
   frameworks: ["jekyll", "github-pages"] # E.g. ["aspnetcore", "ef-core", "fastapi"]
   package_managers: ["bundler"] # E.g. ["nuget", "pip", "uv", "npm"]
   # Approved delivery choice, not a claim about historical practice: author, then require
@@ -121,7 +121,8 @@ infrastructure:
 cicd:
   platform: "github-actions"   # github-actions | azure-pipelines | gitlab-ci | jenkins
   pipeline_paths: [".github/workflows/jekyll-gh-pages.yml"] # E.g. [".github/workflows/", "azure-pipelines.yml"]
-  # Existing workflow builds docs/ and deploys GitHub Pages on main pushes or workflow_dispatch.
+  # Workflow builds docs/ with the frozen Ruby 3.3 bundle, then deploys GitHub Pages
+  # on main pushes or workflow_dispatch.
   # This records existing behavior, not permission to trigger it. Branch-protection checks
   # were not discovered locally; do not treat the build job as a required merge check.
 

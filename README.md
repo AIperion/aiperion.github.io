@@ -30,9 +30,11 @@ gem install bundler --version 2.4.19 --no-document
 bundle _2.4.19_ install
 ```
 
-The lockfile pins Jekyll 3.10.0 and `github-pages` 232. Its Linux, Windows and
+The lockfile pins Jekyll 3.10.0 and `github-pages` 233. Its Linux, Windows and
 Apple Silicon macOS platforms use the same dependency versions. Preserve the
-lockfile; do not run an unrequested dependency update.
+lockfile; do not run an unrequested dependency update. The GitHub Pages workflow
+uses Ruby 3.3, Bundler 2.4.19 and this frozen lockfile for its build rather than
+the deployment action's separate preinstalled gem bundle.
 
 ## Build, test and serve
 
@@ -110,6 +112,28 @@ traces stay under the chosen project-relative evidence directory. Each run uses
 an isolated browser profile and removes its own profile/runtime on exit.
 For base-path verification, serve a directory containing the built `site-check/`
 folder and set `SITE_URL` to `http://127.0.0.1:PORT/site-check/`.
+
+### Design-tool checks
+
+The vendored UI/UX skill includes its catalog-refresh and relevance-evaluation
+maintenance tools. Run its offline standard-library tests separately from the
+website checks:
+
+```sh
+python3 -m unittest discover -s .github/skills/ui-ux-pro-max/scripts/tests -q
+```
+
+The four maintenance modules (`evaluate-relevance.py`, `relevance_metrics.py`,
+`refresh-google-fonts.py` and `refresh-icon-catalog.py`) come from
+[UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/281e4537afb11333ac9947783779aaf314ebfbf2/scripts)
+under its bundled MIT license. Only the evaluator's runtime path is adapted to
+the vendored layout. Catalog tests use offline fixtures; they do not refresh
+the shipped data or require API credentials. The provisional relevance gate
+retains the upstream metric floors, fixtures and ranking logic; its fingerprints
+are bound to this vendored snapshot with the repository maintainer's approval.
+Run it with `python3 .github/skills/ui-ux-pro-max/scripts/evaluate-relevance.py`.
+Changes to the runtime, data or evaluator invalidate that approval rather than
+silently updating its fingerprints.
 
 ## Routes and content editing
 
